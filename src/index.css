@@ -98,3 +98,20 @@
     opacity: 0;
   }
 }
+
+/* Light theme overrides when <html> has class 'light' */
+.light body {
+  @apply bg-white text-gray-900;
+  background: radial-gradient(circle at 50% 0%, #fbfdfc 0%, #ffffff 60%, #ffffff 100%);
+}
+.light .glass-panel {
+  background: rgba(255,255,255,0.9);
+  border-color: rgba(15,23,42,0.06);
+}
+.light .text-white { color: #0b1a12 !important; }
+.light .text-abyssinian-400, .light .text-abyssinian-300, .light .text-abyssinian-500 { color: #374151 !important; }
+.light .bg-abyssinian-950, .light .bg-emerald-950 { background: transparent !important; }
+.light .border-forest-900\/30 { border-color: rgba(15,23,42,0.06) !important; }
+.light .shadow-2xl { box-shadow: 0 10px 30px rgba(2,6,23,0.06) !important; }
+.light .glass-panel-hover:hover { background: rgba(255,255,255,0.98); box-shadow: 0 12px 30px rgba(2,6,23,0.06); }
+

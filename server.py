@@ -80,7 +80,7 @@ def read_root():
         "model_loaded": model_loaded,
         "mode": "Live Model Inference" if model_loaded else "Research Simulation Mode",
         "classes_count": len(class_names),
-        "model_architecture": "InceptionResNetV2 (HUST Master Thesis Study)",
+        "model_architecture": "InceptionResNetV2 (Project Study)",
         "message": "Send a POST request to /predict with an image file."
     }
 

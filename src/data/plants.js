@@ -158,8 +158,8 @@ export const regionsData = [
 
 export const quickFacts = [
   {
-    title: "Master's Thesis Innovation",
-    fact: "This application showcases pioneering research establishing the first massive deep-learning dataset of 24,000 images covering 64 species of Ethiopian medicinal plants, achieving 97.6% recognition accuracy."
+    title: "Project Innovation",
+    fact: "This application showcases a project establishing a deep-learning dataset of 24,000 images covering 64 species of Ethiopian medicinal plants, achieving strong recognition accuracy."
   },
   {
     title: "The InceptionResNetV2 Benchmark",

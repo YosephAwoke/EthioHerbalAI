@@ -27,18 +27,27 @@ import {
   Activity,
   Cpu,
   BarChart3,
-  Globe
+  Globe,
+  Sun,
+  Moon
 } from 'lucide-react';
 import { plantsData, regionsData, quickFacts } from './data/plants';
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState('home');
   const [selectedPlant, setSelectedPlant] = useState(null);
+  const [lightMode, setLightMode] = useState(false);
   
   // Tab Switch Scroll-to-Top
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [currentTab]);
+
+  // Apply light theme class to document root
+  useEffect(() => {
+    if (lightMode) document.documentElement.classList.add('light');
+    else document.documentElement.classList.remove('light');
+  }, [lightMode]);
 
   return (
     <div className="flex flex-col min-h-screen bg-abyssinian-950 font-sans selection:bg-ethioGold-500 selection:text-black">
@@ -47,21 +56,21 @@ export default function App() {
 
       {/* Navigation Header - Scaled to Full Screen Width */}
       <header className="sticky top-0 z-40 w-full glass-panel border-b border-forest-900/30 backdrop-blur-md px-6 md:px-12 py-4">
-        <div className="max-w-[96vw] xl:max-w-[98vw] mx-auto flex items-center justify-between">
+        <div className="max-w-[96vw] xl:max-w-[98vw] mx-auto flex items-center justify-between min-w-0 gap-4">
           
           {/* Brand Logo & Tagline */}
           <div 
-            className="flex items-center gap-3 cursor-pointer group"
+            className="flex items-center gap-3 cursor-pointer group min-w-0"
             onClick={() => setCurrentTab('home')}
           >
             <div className="p-2.5 bg-gradient-to-br from-emerald-500 to-forest-700 rounded-xl shadow-lg shadow-emerald-950/50 group-hover:scale-105 transition-transform">
               <Sprout className="w-7 h-7 text-ethioGold-400 group-hover:rotate-12 transition-transform" />
             </div>
-            <div className="flex flex-col text-left">
-              <span className="font-display font-extrabold text-2xl tracking-tight text-white flex items-center gap-2">
+            <div className="flex flex-col text-left min-w-0">
+              <span className="font-display font-extrabold text-xl md:text-2xl tracking-tight text-white flex items-center gap-2 truncate">
                 EthioHerbal <span className="text-[11px] bg-ethioGold-500/25 text-ethioGold-400 border border-ethioGold-500/30 px-2.5 py-0.5 rounded-full uppercase tracking-wider font-mono font-bold">AI</span>
               </span>
-              <span className="text-xs text-forest-400 tracking-wider font-semibold uppercase">HUST Thesis Research System</span>
+              <span className="text-xs text-forest-400 tracking-wider font-semibold uppercase truncate">Project Portal</span>
             </div>
           </div>
 
@@ -69,8 +78,8 @@ export default function App() {
           <nav className="hidden lg:flex items-center gap-1.5">
             <NavLink active={currentTab === 'home'} onClick={() => setCurrentTab('home')}>Home</NavLink>
             <NavLink active={currentTab === 'scanner'} onClick={() => setCurrentTab('scanner')}>AI Neural Scanner</NavLink>
-            <NavLink active={currentTab === 'encyclopedia'} onClick={() => setCurrentTab('encyclopedia')}>64 Plants Catalog</NavLink>
-            <NavLink active={currentTab === 'research'} onClick={() => setCurrentTab('research')}>HUST Thesis study</NavLink>
+            <NavLink active={currentTab === 'encyclopedia'} onClick={() => setCurrentTab('encyclopedia')}>Herbal Encyclopedia</NavLink>
+            <NavLink active={currentTab === 'research'} onClick={() => setCurrentTab('research')}>Project Study</NavLink>
             <NavLink active={currentTab === 'assistant'} onClick={() => setCurrentTab('assistant')}>AI Herbal Bot</NavLink>
             <NavLink active={currentTab === 'preservation'} onClick={() => setCurrentTab('preservation')}>Preservation</NavLink>
           </nav>
@@ -85,14 +94,22 @@ export default function App() {
               <Camera className="w-4.5 h-4.5 text-ethioGold-400" />
               <span>Real-Time Scan</span>
             </button>
+            <button
+              onClick={() => setLightMode((s) => !s)}
+              aria-label="Toggle light mode"
+              className="px-3 py-2 rounded-lg bg-abyssinian-950/40 border border-forest-800/30 text-abyssinian-300 hover:text-white hover:bg-forest-900/20 transition-all flex items-center gap-2"
+            >
+              {lightMode ? <Sun className="w-4 h-4 text-ethioGold-400" /> : <Moon className="w-4 h-4 text-abyssinian-300" />}
+              <span className="text-sm font-semibold">{lightMode ? 'Light' : 'Dark'}</span>
+            </button>
           </div>
         </div>
 
         {/* Mobile Navigation Header */}
-        <div className="flex lg:hidden justify-around mt-4 border-t border-forest-950/50 pt-3 gap-1.5 text-xs font-bold text-abyssinian-400">
+          <div className="flex lg:hidden justify-around mt-4 border-t border-forest-950/50 pt-3 gap-1.5 text-xs font-bold text-abyssinian-400">
           <MobileNavLink active={currentTab === 'home'} onClick={() => setCurrentTab('home')}>Home</MobileNavLink>
           <MobileNavLink active={currentTab === 'scanner'} onClick={() => setCurrentTab('scanner')}>Scanner</MobileNavLink>
-          <MobileNavLink active={currentTab === 'encyclopedia'} onClick={() => setCurrentTab('encyclopedia')}>64 Plants</MobileNavLink>
+          <MobileNavLink active={currentTab === 'encyclopedia'} onClick={() => setCurrentTab('encyclopedia')}>Encyclopedia</MobileNavLink>
           <MobileNavLink active={currentTab === 'research'} onClick={() => setCurrentTab('research')}>Research</MobileNavLink>
           <MobileNavLink active={currentTab === 'assistant'} onClick={() => setCurrentTab('assistant')}>Bot</MobileNavLink>
           <MobileNavLink active={currentTab === 'preservation'} onClick={() => setCurrentTab('preservation')}>Heritage</MobileNavLink>
@@ -126,14 +143,14 @@ export default function App() {
               <span className="font-display font-extrabold text-xl text-white">EthioHerbal AI</span>
             </div>
             <p className="text-sm text-abyssinian-400 leading-relaxed max-w-sm">
-              An advanced deep learning framework designed to preserve and validate ancient Ethiopian herbal wisdom. Based on master's thesis research utilizing 24,000 images over 64 species models.
+              An advanced deep learning framework designed to preserve and validate traditional Ethiopian herbal knowledge. Based on a project dataset using 24,000 images across 64 species.
             </p>
           </div>
           
           <div className="text-left space-y-3">
             <h4 className="font-display font-bold text-xs text-ethioGold-400 mb-2 tracking-wider uppercase">Medical & Research Disclaimer</h4>
             <p className="text-xs text-abyssinian-500 leading-relaxed">
-              This prototype models research data from the School of Information and Communication Engineering (HUST). Predictions are based on leaf segmentation and pre-trained classification models. Always consult certified medical practitioners before applying traditional herbal extracts.
+              This prototype models project data derived from a curated image collection. Predictions are based on leaf segmentation and pre-trained classification models. Always consult certified medical practitioners before applying traditional herbal extracts.
             </p>
           </div>
 
@@ -146,7 +163,7 @@ export default function App() {
               <span>•</span>
               <a href="#" onClick={(e) => {e.preventDefault(); setCurrentTab('scanner')}} className="hover:underline hover:text-ethioGold-400">Model inference</a>
               <span>•</span>
-              <a href="#" onClick={(e) => {e.preventDefault(); setCurrentTab('research')}} className="hover:underline hover:text-ethioGold-400">HUST Master study</a>
+              <a href="#" onClick={(e) => {e.preventDefault(); setCurrentTab('research')}} className="hover:underline hover:text-ethioGold-400">Project Study</a>
               <span>•</span>
               <a href="#" onClick={(e) => {e.preventDefault(); setCurrentTab('preservation')}} className="hover:underline hover:text-ethioGold-400">Historical Preservation</a>
             </div>
@@ -217,7 +234,7 @@ function HomeView({ setTab }) {
         <div className="flex-grow flex-shrink-0 w-full lg:w-7/12 space-y-8">
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 bg-emerald-950/80 border border-emerald-500/30 rounded-full text-xs font-bold text-emerald-400 shadow-sm uppercase tracking-wider">
             <GraduationCap className="w-4 h-4 text-ethioGold-400" />
-            <span>Master's Thesis Research Project (HUST, 2024)</span>
+            <span>Project Overview (2024)</span>
           </div>
 
           <h1 className="font-display font-extrabold text-5xl md:text-6xl lg:text-7xl tracking-tight leading-none text-white text-glow-green">
@@ -228,7 +245,7 @@ function HomeView({ setTab }) {
           </h1>
 
           <p className="text-abyssinian-300 text-base md:text-lg leading-relaxed max-w-3xl">
-            Bridging indigenous medical lore with high-accuracy Deep Convolutional Networks. Our system leverages a custom dataset of 24,000 images covering 64 species, fine-tuned on Keras <strong>InceptionResNetV2</strong> to yield an outstanding <strong>97.6% validation accuracy</strong>.
+            Bridging indigenous botanical knowledge with high-accuracy Deep Convolutional Networks. The project leverages a custom dataset of 24,000 images across 64 species and fine-tunes <strong>InceptionResNetV2</strong>, achieving strong validation performance.
           </p>
 
           {/* CTA Buttons */}
@@ -244,7 +261,7 @@ function HomeView({ setTab }) {
               onClick={() => setTab('research')}
               className="px-8 py-4 bg-forest-950/40 text-ethioGold-400 hover:text-white rounded-xl text-base font-extrabold tracking-wide border border-forest-900/40 shadow-inner hover:bg-forest-900/30 hover:border-forest-800/50 active:scale-95 transition-all flex items-center gap-2.5"
             >
-              <span>Explore HUST Thesis</span>
+              <span>Explore Project</span>
               <GraduationCap className="w-5 h-5 text-ethioGold-400" />
             </button>
           </div>
@@ -422,8 +439,8 @@ function HomeView({ setTab }) {
         />
         <FeatureCard 
           icon={<BookOpen className="w-7 h-7 text-emerald-400" />}
-          title="64 Species Botanical Catalog"
-          desc="Access comprehensive records compiled from your database containing scientific nomenclature, local names (Amharic, Oromoo, Tigrinya), and traditional preparations."
+          title="Herbal Encyclopedia"
+          desc="Access comprehensive records containing scientific nomenclature, local names (Amharic, Oromoo, Tigrinya), traditional preparations, and safety notes."
         />
         <FeatureCard 
           icon={<MessageSquare className="w-7 h-7 text-rose-400" />}
@@ -967,9 +984,9 @@ function EncyclopediaView({ selectedPlant, setSelectedPlant }) {
       {/* Search Header Banner - Scaled to screen */}
       <div className="glass-panel rounded-2xl p-8 border border-forest-800/20 bg-gradient-to-r from-emerald-950/20 via-abyssinian-950 to-forest-950/20 flex flex-col md:flex-row items-center gap-8 justify-between">
         <div className="space-y-3">
-          <h2 className="font-display font-extrabold text-4xl text-white tracking-tight text-glow-green">64 Species Preserved Database</h2>
+          <h2 className="font-display font-extrabold text-4xl text-white tracking-tight text-glow-green">Herbal Encyclopedia Database</h2>
           <p className="text-sm text-abyssinian-400 leading-relaxed max-w-xl">
-            This database comprises the full dataset compiled in your master study. Browse and search 64 traditional medicinal plant classes representing 24,000 research images.
+            This database comprises the project dataset. Browse and search 64 traditional medicinal plant classes representing 24,000 documented images.
           </p>
         </div>
 
@@ -1147,8 +1164,8 @@ function EncyclopediaView({ selectedPlant, setSelectedPlant }) {
 }
 
 /* ============================================================================
-   VIEW 4: HUST MASTER'S THESIS STUDY INSIGHTS & COMPARISONS
-   ============================================================================ */
+  VIEW 4: PROJECT STUDY INSIGHTS & COMPARISONS
+  ============================================================================ */
 function ResearchView() {
   return (
     <div className="space-y-16 animate-fade-in text-left">
@@ -1160,19 +1177,19 @@ function ResearchView() {
           <span>Research Study & Validation Metrics</span>
         </div>
         <h2 className="font-display font-extrabold text-4xl text-white tracking-tight leading-tight text-glow-green">
-          HUST Master's Engineering Thesis
+          Project Study & Insights
         </h2>
         <p className="text-sm sm:text-base text-abyssinian-400 leading-relaxed">
-          Pioneering the application of Deep Learning to digitize and classify Ethiopian medicinal plants. Presented in <strong>April 2024</strong> at <strong>Huazhong University of Science and Technology</strong>.
+          Pioneering the application of Deep Learning to digitize and classify Ethiopian medicinal plants. Presented in <strong>April 2024</strong>.
         </p>
       </section>
 
       {/* 2. Abstract & Core Dataset Highlights */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        {/* Thesis Metadata Details (Col 1-4) */}
+        {/* Project Metadata Details (Col 1-4) */}
         <div className="lg:col-span-4 glass-panel rounded-2xl border border-forest-800/20 p-8 flex flex-col justify-between bg-gradient-to-b from-abyssinian-950 to-forest-950/10">
           <div className="space-y-6">
-            <h4 className="font-display font-black text-xs text-ethioGold-400 tracking-wider uppercase">Thesis Metadata</h4>
+            <h4 className="font-display font-black text-xs text-ethioGold-400 tracking-wider uppercase">Project Metadata</h4>
             <div className="space-y-4 text-sm">
               <div>
                 <span className="text-abyssinian-500 block text-xs font-bold uppercase tracking-wider">Candidate</span>
@@ -1198,7 +1215,7 @@ function ResearchView() {
           </div>
           <div className="border-t border-forest-900/30 pt-6 mt-6">
             <span className="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3.5 py-1.5 rounded-full font-bold font-mono">
-              STATUS: THESIS SUCCESSFUL
+              STATUS: PROJECT COMPLETED
             </span>
           </div>
         </div>
@@ -1207,7 +1224,7 @@ function ResearchView() {
         <div className="lg:col-span-8 glass-panel rounded-2xl border border-forest-800/20 p-8 md:p-10 bg-gradient-to-br from-abyssinian-950 via-forest-950/10 to-abyssinian-950 space-y-6">
           <h4 className="font-display font-black text-xs text-ethioGold-400 tracking-wider uppercase">Research Abstract Overview</h4>
           <p className="text-sm text-abyssinian-300 leading-relaxed">
-            "This thesis marks an innovative effort in the domain of deep learning-based image classification, specifically tailored to Ethiopian traditional medicinal plants. Distinguished by its commitment to unique challenges including <strong>awareness gaps, inadequate documentation, and biodiversity preservation</strong>, this research highlights the profound significance of traditional medicine."
+            "This project marks an innovative effort in deep learning-based image classification tailored to Ethiopian traditional medicinal plants. Focused on awareness, documentation gaps, and biodiversity preservation, the work emphasizes the significance of safeguarding traditional knowledge."
           </p>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-forest-900/30 pt-6">
@@ -1288,7 +1305,7 @@ function ResearchView() {
         <MethodologyCard 
           icon={<Globe className="w-6 h-6 text-emerald-400" />}
           title="Model Quantization"
-          desc="The thesis explored TensorFlow Lite quantization, successfully compressing the massive 210MB InceptionResNetV2 model to improve calculation speed and support offline usage in rural remote villages."
+          desc="The project explored TensorFlow Lite quantization, compressing the large InceptionResNetV2 model to improve inference speed and support offline usage in remote environments."
         />
         <MethodologyCard 
           icon={<BarChart3 className="w-6 h-6 text-rose-400" />}
@@ -1389,13 +1406,13 @@ function AssistantView() {
       const text = queryText.toLowerCase();
 
       if (text.includes('diarrhea') || text.includes('acacia') || text.includes('stomach') || text.includes('girar')) {
-        botResponse = `For digestive issues and diarrhea, your HUST research table lists **Acacia nilotica (Girar / ግራር)** as a core remedy.\n\n**Traditional Prep:** The fruits and leaflets of Girar are gathered and prepared. It is traditionally consumed to treat acute diarrhea, diabetes, stomach disorders, and loose teeth (strengthening gums).\n\n**Category:** Digestive wellness.`;
+        botResponse = `For digestive issues and diarrhea, the project database lists **Acacia nilotica (Girar / ግራር)** as a core remedy.\n\n**Traditional Prep:** The fruits and leaflets of Girar are gathered and prepared. It is traditionally consumed to treat acute diarrhea, diabetes, stomach disorders, and loose teeth (strengthening gums).\n\n**Category:** Digestive wellness.`;
       } 
       else if (text.includes('tonsillitis') || text.includes('tonsil') || text.includes('acmella') || text.includes('berbere')) {
         botResponse = `For tonsillitis, your database indicates a highly effective local herb: **Acmella caulirhiza (Yemdir berbere / የምድር በርበሬ)**.\n\n**Traditional Preparation:** Local healers utilize the leaves and flowers of the plant. Chewing the flowers and applying them directly to the tonsil area is the primary traditional treatment.`;
       }
       else if (text.includes('kebericho') || text.includes('echinops') || text.includes('headache') || text.includes('vomit')) {
-        botResponse = `**Echinops kebericho (Kebericho / ቀበሪቾ)** is one of the most famous, highly prized medicinal roots in the Ethiopian highlands.\n\n**Uses:** According to your research data, Kebericho roots are pulverized and used for the treatment of severe toothaches, vomiting, and persistent headaches.\n\n**Category:** Respiratory & pain relief.`;
+        botResponse = `**Echinops kebericho (Kebericho / ቀበሪቾ)** is one of the most famous, highly prized medicinal roots in the Ethiopian highlands.\n\n**Uses:** According to project data, Kebericho roots are pulverized and used for the treatment of severe toothaches, vomiting, and persistent headaches.\n\n**Category:** Respiratory & pain relief.`;
       } 
       else if (text.includes('tenadam') || text.includes('ruta') || text.includes('pregnancy') || text.includes('pregnant')) {
         botResponse = `**Ruta chalepensis (Tenadam / ጥናዳም)** is widely used for relieving stomach aches through cold water maceration and ingestion.\n\n**Critical Pregnancy Warning:** In traditional toxicology and modern pharmacology, Tenadam contains active quinoline alkaloids that act as uterine stimulants. It is **highly dangerous and strictly forbidden** for pregnant women. Phototoxic compounds in its sap can also cause blistering skin burns in sunlight.`;
@@ -1407,10 +1424,10 @@ function AssistantView() {
         botResponse = `**Rhamnus prinoides (Gesho / ጌሽሖ)** is a vital highland plant.\n\n**Uses:** Beyond its extensive cultural significance as a bittering agent for fermenting traditional beer (Talla) and honey wine (Tej), it is traditionally used as a stomachic and antimicrobial agent for treating tonsillitis.`;
       }
       else if (text.includes('accuracy') || text.includes('inceptionresnetv2') || text.includes('hust') || text.includes('thesis')) {
-        botResponse = `Your HUST master's thesis successfully trained **InceptionResNetV2** on 24,000 images representing all 64 classes, yielding an outstanding **97.6% validation accuracy**.\n\nThis model outperforms VGG16 (82.5% test accuracy), MobileNetV2 (87.8% test accuracy), and InceptionV3 (80.9% test accuracy), demonstrating superior feature extraction in analyzing detailed plant leaves.`;
+        botResponse = `The project successfully trained **InceptionResNetV2** on 24,000 images representing all 64 classes, yielding an excellent **97.6% validation accuracy**.\n\nThis model outperforms VGG16 (82.5% test accuracy), MobileNetV2 (87.8% test accuracy), and InceptionV3 (80.9% test accuracy), demonstrating strong feature extraction in analyzing detailed plant leaves.`;
       }
       else {
-        botResponse = `I can provide detailed information about any of the **64 traditional plants** in your database (like *Echinops kebericho* for headaches, *Acacia nilotica* for diarrhea, or *Acmella caulirhiza* for tonsillitis).\n\nAsk me about traditional preparations, what parts are used (leaves, roots, seeds), where they grow, or HUST model details!`;
+        botResponse = `I can provide detailed information about any of the **64 traditional plants** in your database (like *Echinops kebericho* for headaches, *Acacia nilotica* for diarrhea, or *Acmella caulirhiza* for tonsillitis).\n\nAsk me about traditional preparations, what parts are used (leaves, roots, seeds), where they grow, or project model details!`;
       }
 
       setMessages(prev => [...prev, { role: 'bot', content: botResponse }]);
