@@ -50,7 +50,18 @@ export default function App() {
   }, [lightMode]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-abyssinian-950 font-sans selection:bg-ethioGold-500 selection:text-black">
+    <div className="relative isolate flex flex-col min-h-screen bg-abyssinian-950 font-sans selection:bg-ethioGold-500 selection:text-black overflow-hidden">
+      <div aria-hidden="true" className="page-ambient pointer-events-none absolute inset-0 overflow-hidden">
+        <span className="flora-orb flora-orb-1"></span>
+        <span className="flora-orb flora-orb-2"></span>
+        <span className="flora-orb flora-orb-3"></span>
+        <span className="flora-orb flora-orb-4"></span>
+
+        <span className="floating-leaf floating-leaf-1"><Leaf className="w-6 h-6" /></span>
+        <span className="floating-leaf floating-leaf-2"><Sprout className="w-7 h-7" /></span>
+        <span className="floating-leaf floating-leaf-3"><Leaf className="w-5 h-5" /></span>
+        <span className="floating-leaf floating-leaf-4"><Sprout className="w-6 h-6" /></span>
+      </div>
       {/* Top Multi-Color Eco Stripe Accent */}
       <div className="h-2 w-full bg-gradient-to-r from-emerald-600 via-ethioGold-500 to-rose-600"></div>
 
@@ -117,7 +128,7 @@ export default function App() {
       </header>
 
       {/* Main Body - Scaled for Screen Fitting & Accessibility */}
-      <main className="flex-grow max-w-[96vw] xl:max-w-[98vw] w-full mx-auto px-6 md:px-12 py-10">
+      <main className="relative z-10 flex-grow max-w-[96vw] xl:max-w-[98vw] w-full mx-auto px-6 md:px-12 py-10">
         {currentTab === 'home' && <HomeView setTab={setCurrentTab} />}
         {currentTab === 'scanner' && <ScannerView setSelectedPlant={setSelectedPlant} />}
         {currentTab === 'encyclopedia' && (
@@ -132,7 +143,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="mt-auto border-t border-forest-900/30 bg-abyssinian-950/80 backdrop-blur-md py-12 px-6 md:px-12">
+      <footer className="relative z-10 mt-auto border-t border-forest-900/30 bg-abyssinian-950/80 backdrop-blur-md py-12 px-6 md:px-12">
         <div className="max-w-[96vw] xl:max-w-[98vw] w-full mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
           
           <div className="flex flex-col gap-4 text-left">
@@ -222,16 +233,16 @@ function HomeView({ setTab }) {
   }, []);
 
   return (
-    <div className="space-y-20 animate-fade-in text-left">
+    <div className="scene-shell scene-home space-y-20 animate-fade-in text-left">
       {/* 1. HERO SECTION - Expanded to fit screen */}
-      <section className="relative glass-panel rounded-3xl overflow-hidden p-10 md:p-16 border border-emerald-800/20 shadow-2xl flex flex-col lg:flex-row items-center gap-16">
+      <section className="relative glass-panel rounded-3xl overflow-hidden p-10 md:p-16 border border-emerald-800/20 shadow-2xl flex flex-col lg:flex-row items-center gap-16 flora-card bloom-card">
         
         {/* Decorative Radial Lights */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-600/10 rounded-full filter blur-3xl -z-10 animate-pulse-slow"></div>
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-ethioGold-600/5 rounded-full filter blur-3xl -z-10"></div>
         
         {/* Hero Left Content */}
-        <div className="flex-grow flex-shrink-0 w-full lg:w-7/12 space-y-8">
+        <div className="flex-grow flex-shrink-0 w-full lg:w-7/12 space-y-8 page-reveal page-reveal-1">
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 bg-emerald-950/80 border border-emerald-500/30 rounded-full text-xs font-bold text-emerald-400 shadow-sm uppercase tracking-wider">
             <GraduationCap className="w-4 h-4 text-ethioGold-400" />
             <span>Project Overview (2024)</span>
@@ -268,7 +279,7 @@ function HomeView({ setTab }) {
         </div>
 
         {/* Hero Right Visual Banner */}
-        <div className="flex-grow w-full lg:w-5/12">
+        <div className="flex-grow w-full lg:w-5/12 page-reveal page-reveal-2">
           <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-forest-800/30 shadow-2xl glass-panel group">
             {/* Ambient scanner sweep on hero image */}
             <div className="absolute inset-0 laser-line w-full h-1/6 animate-sweep z-10 pointer-events-none opacity-60"></div>
@@ -297,7 +308,7 @@ function HomeView({ setTab }) {
       </section>
 
       {/* 2. DYNAMIC HISTORICAL FACTS SLIDER */}
-      <section className="bg-gradient-to-r from-forest-950/40 via-abyssinian-950 to-forest-950/40 p-2 border-y border-forest-900/20">
+      <section className="bg-gradient-to-r from-forest-950/40 via-abyssinian-950 to-forest-950/40 p-2 border-y border-forest-900/20 motion-band">
         <div className="max-w-[96vw] mx-auto py-5 px-6 flex flex-col md:flex-row items-center gap-8 justify-between">
           <div className="flex items-center gap-2.5 text-ethioGold-400 bg-ethioGold-500/10 px-4 py-2 rounded-full border border-ethioGold-500/20 text-xs font-black uppercase tracking-widest shrink-0">
             <History className="w-4 h-4" />
@@ -320,7 +331,7 @@ function HomeView({ setTab }) {
       </section>
 
       {/* 3. INTERACTIVE GEOGRAPHICAL MAP */}
-      <section className="space-y-10">
+      <section className="space-y-10 scene-scene">
         <div className="text-center max-w-2xl mx-auto space-y-4">
           <h2 className="font-display font-extrabold text-4xl text-white text-glow-green">Ethiopian Biodiversity Climatic Map</h2>
           <p className="text-sm sm:text-base text-abyssinian-400 leading-relaxed">
@@ -330,7 +341,7 @@ function HomeView({ setTab }) {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
           {/* Map Visual (Grid Column 1-7) */}
-          <div className="lg:col-span-7 glass-panel rounded-2xl border border-forest-800/20 p-8 flex flex-col justify-center min-h-[450px] relative overflow-hidden bg-emerald-950/10 shadow-inner">
+          <div className="lg:col-span-7 glass-panel rounded-2xl border border-forest-800/20 p-8 flex flex-col justify-center min-h-[450px] relative overflow-hidden bg-emerald-950/10 shadow-inner flora-card">
             <div className="absolute inset-0 bg-radial-gradient from-emerald-900/5 to-transparent pointer-events-none"></div>
             
             {/* Topographical grid lines */}
@@ -377,7 +388,7 @@ function HomeView({ setTab }) {
           </div>
 
           {/* Region Details Panel (Grid Column 8-12) */}
-          <div className="lg:col-span-5 flex flex-col justify-between glass-panel rounded-2xl border border-forest-800/20 p-8 md:p-10 bg-gradient-to-b from-abyssinian-950 to-forest-950/20 text-left">
+          <div className="lg:col-span-5 flex flex-col justify-between glass-panel rounded-2xl border border-forest-800/20 p-8 md:p-10 bg-gradient-to-b from-abyssinian-950 to-forest-950/20 text-left flora-card">
             <div className="space-y-8">
               <div className="flex items-start justify-between gap-4">
                 <div className="space-y-2">
@@ -678,7 +689,7 @@ function ScannerView({ setSelectedPlant }) {
   };
 
   return (
-    <div className="space-y-10 animate-fade-in text-left">
+    <div className="scene-shell scene-scanner space-y-10 animate-fade-in text-left">
       
       {/* Header with Server Status LED */}
       <div className="border-b border-forest-900/30 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -705,7 +716,7 @@ function ScannerView({ setSelectedPlant }) {
         
         {/* Left Scanner Box (Col 1-7) */}
         <div className="lg:col-span-7 space-y-6">
-          <div className="relative rounded-2xl aspect-[4/3] w-full border-2 border-dashed glass-panel flex flex-col items-center justify-center overflow-hidden bg-emerald-950/5 border-forest-800/40">
+          <div className="relative rounded-2xl aspect-[4/3] w-full border-2 border-dashed glass-panel flex flex-col items-center justify-center overflow-hidden bg-emerald-950/5 border-forest-800/40 flora-card bloom-card">
             {selectedImage ? (
               <div className="absolute inset-0 w-full h-full">
                 <img src={selectedImage} alt="Scanned Subject" className="w-full h-full object-cover" />
@@ -798,7 +809,7 @@ function ScannerView({ setSelectedPlant }) {
                   key={plant.id}
                   onClick={() => triggerPresetScan(plant.id)}
                   disabled={scanning}
-                  className={`group rounded-xl overflow-hidden glass-panel text-left flex flex-col border hover:scale-[1.02] transition-all disabled:opacity-50 disabled:pointer-events-none ${
+                  className={`group rounded-xl overflow-hidden glass-panel text-left flex flex-col border hover:scale-[1.02] transition-all disabled:opacity-50 disabled:pointer-events-none flora-card ${
                     activePreset === plant.id 
                       ? 'border-ethioGold-500 shadow-lg shadow-ethioGold-500/5' 
                       : 'border-forest-900/30 hover:border-forest-800'
@@ -821,7 +832,7 @@ function ScannerView({ setSelectedPlant }) {
         {/* Right Scan Result Panel (Col 8-12) */}
         <div className="lg:col-span-5 h-full">
           {scanResult ? (
-            <div className="glass-panel rounded-2xl border border-forest-800/20 overflow-hidden bg-gradient-to-b from-abyssinian-950 to-forest-950/20 shadow-2xl flex flex-col">
+            <div className="glass-panel rounded-2xl border border-forest-800/20 overflow-hidden bg-gradient-to-b from-abyssinian-950 to-forest-950/20 shadow-2xl flex flex-col flora-card">
               
               {/* Header Title band */}
               <div className="p-6 bg-gradient-to-r from-emerald-950 via-forest-950 to-emerald-950 border-b border-forest-900/30 flex items-center justify-between gap-3 text-left">
@@ -979,10 +990,10 @@ function EncyclopediaView({ selectedPlant, setSelectedPlant }) {
   });
 
   return (
-    <div className="space-y-10 animate-fade-in text-left">
+    <div className="scene-shell scene-encyclopedia space-y-10 animate-fade-in text-left">
       
       {/* Search Header Banner - Scaled to screen */}
-      <div className="glass-panel rounded-2xl p-8 border border-forest-800/20 bg-gradient-to-r from-emerald-950/20 via-abyssinian-950 to-forest-950/20 flex flex-col md:flex-row items-center gap-8 justify-between">
+      <div className="glass-panel rounded-2xl p-8 border border-forest-800/20 bg-gradient-to-r from-emerald-950/20 via-abyssinian-950 to-forest-950/20 flex flex-col md:flex-row items-center gap-8 justify-between flora-card bloom-card">
         <div className="space-y-3">
           <h2 className="font-display font-extrabold text-4xl text-white tracking-tight text-glow-green">Herbal Encyclopedia Database</h2>
           <p className="text-sm text-abyssinian-400 leading-relaxed max-w-xl">
@@ -998,7 +1009,7 @@ function EncyclopediaView({ selectedPlant, setSelectedPlant }) {
             placeholder="Search e.g. Damakesse, ጤና አዳም, Allium sativum..." 
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-10 py-3 bg-forest-950/80 border border-forest-800/60 focus:border-ethioGold-500 rounded-xl text-xs outline-none text-white transition-all placeholder-abyssinian-500 font-sans"
+            className="w-full pl-12 pr-10 py-3 bg-forest-950/80 border border-forest-800/60 focus:border-ethioGold-500 rounded-xl text-xs outline-none text-white transition-all placeholder-abyssinian-500 font-sans flora-input"
           />
           {searchQuery && (
             <button onClick={() => setSearchQuery('')} className="absolute right-4 top-3.5 text-abyssinian-400 hover:text-white">
@@ -1168,10 +1179,10 @@ function EncyclopediaView({ selectedPlant, setSelectedPlant }) {
   ============================================================================ */
 function ResearchView() {
   return (
-    <div className="space-y-16 animate-fade-in text-left">
+    <div className="scene-shell scene-research space-y-16 animate-fade-in text-left">
       
       {/* 1. Academic Header */}
-      <section className="text-center max-w-3xl mx-auto space-y-4">
+      <section className="text-center max-w-3xl mx-auto space-y-4 page-reveal">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-ethioGold-500/10 border border-ethioGold-500/25 rounded-full text-xs font-black text-ethioGold-400 uppercase tracking-widest">
           <GraduationCap className="w-4 h-4" />
           <span>Research Study & Validation Metrics</span>
@@ -1187,7 +1198,7 @@ function ResearchView() {
       {/* 2. Abstract & Core Dataset Highlights */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         {/* Project Metadata Details (Col 1-4) */}
-        <div className="lg:col-span-4 glass-panel rounded-2xl border border-forest-800/20 p-8 flex flex-col justify-between bg-gradient-to-b from-abyssinian-950 to-forest-950/10">
+        <div className="lg:col-span-4 glass-panel rounded-2xl border border-forest-800/20 p-8 flex flex-col justify-between bg-gradient-to-b from-abyssinian-950 to-forest-950/10 flora-card">
           <div className="space-y-6">
             <h4 className="font-display font-black text-xs text-ethioGold-400 tracking-wider uppercase">Project Metadata</h4>
             <div className="space-y-4 text-sm">
@@ -1221,7 +1232,7 @@ function ResearchView() {
         </div>
 
         {/* Abstract Highlights Panel (Col 5-12) */}
-        <div className="lg:col-span-8 glass-panel rounded-2xl border border-forest-800/20 p-8 md:p-10 bg-gradient-to-br from-abyssinian-950 via-forest-950/10 to-abyssinian-950 space-y-6">
+        <div className="lg:col-span-8 glass-panel rounded-2xl border border-forest-800/20 p-8 md:p-10 bg-gradient-to-br from-abyssinian-950 via-forest-950/10 to-abyssinian-950 space-y-6 flora-card">
           <h4 className="font-display font-black text-xs text-ethioGold-400 tracking-wider uppercase">Research Abstract Overview</h4>
           <p className="text-sm text-abyssinian-300 leading-relaxed">
             "This project marks an innovative effort in deep learning-based image classification tailored to Ethiopian traditional medicinal plants. Focused on awareness, documentation gaps, and biodiversity preservation, the work emphasizes the significance of safeguarding traditional knowledge."
@@ -1237,7 +1248,7 @@ function ResearchView() {
       </section>
 
       {/* 3. Pretrained CNN Model Comparison Chart (Stylized HTML/CSS Graph) */}
-      <section className="glass-panel rounded-3xl border border-forest-800/20 p-8 md:p-12 space-y-10 bg-gradient-to-b from-abyssinian-950 to-forest-950/20">
+      <section className="glass-panel rounded-3xl border border-forest-800/20 p-8 md:p-12 space-y-10 bg-gradient-to-b from-abyssinian-950 to-forest-950/20 flora-card">
         <div className="text-center max-w-xl mx-auto space-y-3">
           <h3 className="font-display font-extrabold text-3xl text-white tracking-tight">Pretrained CNN Transfer Learning Performance</h3>
           <p className="text-xs sm:text-sm text-abyssinian-400 leading-relaxed">
@@ -1254,7 +1265,7 @@ function ResearchView() {
             barColor="bg-gradient-to-r from-emerald-500 to-ethioGold-500" 
             layers="164 Layers" 
             params="~55 Million Params"
-            isActive={True}
+            isActive={true}
           />
           {/* MobileNetV2 */}
           <ChartRow 
@@ -1320,7 +1331,7 @@ function ResearchView() {
 // Subcomponents for Research View
 function StatCard({ number, label }) {
   return (
-    <div className="p-5 bg-forest-950/35 border border-forest-900/40 rounded-2xl text-center space-y-1">
+    <div className="p-5 bg-forest-950/35 border border-forest-900/40 rounded-2xl text-center space-y-1 flora-card">
       <span className="block font-display font-black text-2xl text-ethioGold-400 text-glow-gold">{number}</span>
       <span className="block text-[10px] text-abyssinian-400 font-extrabold uppercase tracking-widest">{label}</span>
     </div>
@@ -1329,7 +1340,7 @@ function StatCard({ number, label }) {
 
 function ChartRow({ name, accuracy, testAccuracy, barColor, layers, params, isActive = false }) {
   return (
-    <div className={`p-5 rounded-2xl border text-left space-y-3 transition-all ${
+    <div className={`p-5 rounded-2xl border text-left space-y-3 transition-all flora-card ${
       isActive 
         ? 'bg-emerald-950/20 border-ethioGold-500/50 shadow-lg shadow-ethioGold-500/5' 
         : 'bg-forest-950/20 border-forest-900/30'
@@ -1359,7 +1370,7 @@ function ChartRow({ name, accuracy, testAccuracy, barColor, layers, params, isAc
 
 function MethodologyCard({ icon, title, desc }) {
   return (
-    <div className="glass-panel p-6 sm:p-8 rounded-2xl text-left space-y-4">
+    <div className="glass-panel p-6 sm:p-8 rounded-2xl text-left space-y-4 flora-card">
       <div className="w-12 h-12 rounded-xl bg-forest-950 border border-forest-900/40 flex items-center justify-center shadow-inner">
         {icon}
       </div>
@@ -1458,7 +1469,7 @@ function AssistantView() {
   };
 
   return (
-    <div className="max-w-[96vw] xl:max-w-[98vw] w-full mx-auto glass-panel rounded-2xl border border-forest-800/20 overflow-hidden flex flex-col h-[75vh] min-h-[500px] shadow-2xl animate-fade-in text-left">
+    <div className="scene-shell scene-assistant max-w-[96vw] xl:max-w-[98vw] w-full mx-auto glass-panel rounded-2xl border border-forest-800/20 overflow-hidden flex flex-col h-[75vh] min-h-[500px] shadow-2xl animate-fade-in text-left flora-card bloom-card">
       {/* Bot Chat Header */}
       <div className="p-5 bg-gradient-to-r from-emerald-950 via-forest-950 to-emerald-950 border-b border-forest-900/30 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -1564,9 +1575,9 @@ function AssistantView() {
    ============================================================================ */
 function PreservationView() {
   return (
-    <div className="space-y-16 animate-fade-in text-left">
+    <div className="scene-shell scene-preservation space-y-16 animate-fade-in text-left">
       {/* Immersive Scroll Header */}
-      <section className="text-center max-w-3xl mx-auto space-y-4">
+      <section className="text-center max-w-3xl mx-auto space-y-4 page-reveal">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-ethioGold-500/10 border border-ethioGold-500/20 rounded-full text-xs font-black text-ethioGold-400 uppercase tracking-widest">
           <History className="w-4 h-4" />
           <span>Securing Ancestral Heritage</span>
@@ -1581,7 +1592,7 @@ function PreservationView() {
 
       {/* Detailed narrative cards grid */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-        <div className="glass-panel rounded-2xl border border-forest-800/20 p-8 flex flex-col justify-between space-y-6">
+        <div className="glass-panel rounded-2xl border border-forest-800/20 p-8 flex flex-col justify-between space-y-6 flora-card">
           <div className="space-y-4">
             <div className="w-12 h-12 rounded-xl bg-forest-950 border border-forest-900/50 flex items-center justify-center shadow-inner">
               <History className="w-6 h-6 text-ethioGold-400" />
@@ -1596,7 +1607,7 @@ function PreservationView() {
           </div>
         </div>
 
-        <div className="glass-panel rounded-2xl border border-forest-800/20 p-8 flex flex-col justify-between space-y-6">
+        <div className="glass-panel rounded-2xl border border-forest-800/20 p-8 flex flex-col justify-between space-y-6 flora-card">
           <div className="space-y-4">
             <div className="w-12 h-12 rounded-xl bg-forest-950 border border-forest-900/50 flex items-center justify-center shadow-inner">
               <ShieldAlert className="w-6 h-6 text-rose-400" />
@@ -1613,7 +1624,7 @@ function PreservationView() {
       </section>
 
       {/* Preservation Process visual timeline */}
-      <section className="glass-panel rounded-2xl border border-forest-800/20 p-10 md:p-12 text-center space-y-12">
+      <section className="glass-panel rounded-2xl border border-forest-800/20 p-10 md:p-12 text-center space-y-12 flora-card">
         <h3 className="font-display font-extrabold text-2xl text-white">How EthioHerbal AI Preserves Wisdom</h3>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 relative">
@@ -1644,7 +1655,7 @@ function PreservationView() {
 // Subcomponent for the timeline steps
 function TimelineStep({ number, title, desc }) {
   return (
-    <div className="flex flex-col items-center space-y-4">
+    <div className="flex flex-col items-center space-y-4 flora-card">
       <div className="w-14 h-14 rounded-full bg-forest-950 border-2 border-emerald-500/30 text-ethioGold-400 flex items-center justify-center font-display font-black text-xl shadow-lg relative">
         <span className="absolute inset-0.5 rounded-full border border-ethioGold-500/20 animate-ping"></span>
         {number}
