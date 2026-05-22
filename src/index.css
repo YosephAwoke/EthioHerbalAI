@@ -115,3 +115,50 @@
 .light .shadow-2xl { box-shadow: 0 10px 30px rgba(2,6,23,0.06) !important; }
 .light .glass-panel-hover:hover { background: rgba(255,255,255,0.98); box-shadow: 0 12px 30px rgba(2,6,23,0.06); }
 
+/* Inputs, selects, textareas */
+.light input, .light textarea, .light select {
+  background: #ffffff !important;
+  color: #0b1a12 !important;
+  border-color: rgba(15,23,42,0.08) !important;
+}
+
+/* Buttons default in light mode */
+.light button {
+  color: #0b1a12 !important;
+}
+.light .bg-forest-900\/10 { background: rgba(15,23,42,0.04) !important; }
+.light .bg-forest-950\/20 { background: rgba(15,23,42,0.03) !important; }
+
+/* Modal overlay (detail popup) in light mode */
+.light .fixed.inset-0.z-50 {
+  background: rgba(255,255,255,0.9) !important;
+  color: #0b1a12 !important;
+}
+
+/* Card panels and footers */
+.light .bg-abyssinian-950\/40 { background: rgba(255,255,255,0.85) !important; }
+.light .bg-abyssinian-950\/80 { background: rgba(255,255,255,0.92) !important; }
+.light .bg-emerald-950\/20 { background: rgba(16,185,129,0.06) !important; }
+
+/* Make text-glow less intrusive on white */
+.light .text-glow-gold { text-shadow: none !important; }
+.light .text-glow-green { text-shadow: none !important; }
+
+/* Enforce readable link colors */
+.light a { color: #0b1a12 !important; }
+
+
+/* Broad overrides to catch utility classes that still carry dark styles */
+.light [class*="bg-abyssinian-950"] { background: rgba(255,255,255,0.94) !important; }
+.light [class*="bg-forest-950"] { background: rgba(15,23,42,0.03) !important; }
+.light [class*="bg-emerald-950"] { background: rgba(16,185,129,0.04) !important; }
+.light [class*="bg-forest-900"] { background: rgba(15,23,42,0.04) !important; }
+.light [class*="bg-black"] { background: rgba(0,0,0,0.02) !important; }
+.light [class*="text-white"] { color: #0b1a12 !important; }
+.light [class*="border-forest-900"] { border-color: rgba(15,23,42,0.06) !important; }
+.light [class*="border-abyssinian-950"] { border-color: rgba(15,23,42,0.06) !important; }
+
+/* Make glass panels lighter still */
+.light .glass-panel { background: rgba(255,255,255,0.96); border-color: rgba(15,23,42,0.06); }
+
+

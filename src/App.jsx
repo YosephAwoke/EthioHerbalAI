@@ -75,7 +75,7 @@ export default function App() {
           </div>
 
           {/* Navigation Tab Links */}
-          <nav className="hidden lg:flex items-center gap-1.5">
+          <nav className="hidden lg:flex items-center gap-3">
             <NavLink active={currentTab === 'home'} onClick={() => setCurrentTab('home')}>Home</NavLink>
             <NavLink active={currentTab === 'scanner'} onClick={() => setCurrentTab('scanner')}>AI Neural Scanner</NavLink>
             <NavLink active={currentTab === 'encyclopedia'} onClick={() => setCurrentTab('encyclopedia')}>Herbal Encyclopedia</NavLink>
@@ -179,10 +179,10 @@ function NavLink({ active, onClick, children }) {
   return (
     <button
       onClick={onClick}
-      className={`px-4.5 py-2 rounded-xl text-base font-bold tracking-wide transition-all ${
-        active 
-          ? 'bg-emerald-900/50 text-ethioGold-400 border border-emerald-500/25 shadow-inner' 
-          : 'text-abyssinian-300 hover:text-white hover:bg-forest-900/20'
+      className={`px-3.5 py-2 rounded-md text-sm font-semibold tracking-wide transition-all mr-2 whitespace-nowrap ${
+        active
+          ? 'bg-emerald-900/60 text-ethioGold-400 border border-emerald-500/25 shadow-inner' 
+          : 'bg-forest-900/10 text-abyssinian-300 border border-forest-800/30'
       }`}
     >
       {children}
@@ -195,10 +195,10 @@ function MobileNavLink({ active, onClick, children }) {
   return (
     <button
       onClick={onClick}
-      className={`flex-1 py-2 text-center rounded-lg transition-all ${
+      className={`flex-1 py-2 text-center rounded-lg transition-all text-sm ${
         active 
-          ? 'bg-emerald-900/50 text-ethioGold-400 border border-emerald-500/20 shadow-inner' 
-          : 'text-abyssinian-400 hover:text-white'
+          ? 'bg-emerald-900/60 text-ethioGold-400 border border-emerald-500/20 shadow-inner' 
+          : 'bg-forest-900/6 text-abyssinian-400 border border-forest-900/20 hover:bg-forest-900/20'
       }`}
     >
       {children}
@@ -1084,7 +1084,7 @@ function EncyclopediaView({ selectedPlant, setSelectedPlant }) {
 
       {/* DETAIL OVERLAY MODAL */}
       {selectedPlant && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-fade-in">
+        <div className={"fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm animate-fade-in " + (document.documentElement.classList.contains('light') ? 'bg-white/90 text-black' : 'bg-black/85') }>
           <div 
             className="w-full max-w-4xl glass-panel bg-abyssinian-950 rounded-2xl border border-forest-800/30 overflow-hidden shadow-2xl flex flex-col md:flex-row relative animate-slide-up"
             onClick={(e) => e.stopPropagation()}
