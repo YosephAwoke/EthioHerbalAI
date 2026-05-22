@@ -1,0 +1,642 @@
+[
+  {
+    "id": "acacia-nilotica",
+    "no": "",
+    "scientificName": "Acacia nilotica",
+    "localName": "ግራር Girar",
+    "habitat": "Dry bushland",
+    "partsUsed": "Fruits, Leaflets",
+    "uses": "Treatment of diarrhea, diabetes, gum issues, hemorrhage, loose teeth, stomach ailments",
+    "category": "Digestive"
+  },
+  {
+    "id": "acmella-caulirhiza",
+    "no": "",
+    "scientificName": "Acmella caulirhiza",
+    "localName": "የምድር በርበሬ Yemdir berbere",
+    "habitat": "Wetlands, forest floors, stream banks",
+    "partsUsed": "Leaves, Flowers",
+    "uses": "Healing of tonsillitis through flower chewing and application",
+    "category": "Respiratory"
+  },
+  {
+    "id": "aerva-javanica",
+    "no": "",
+    "scientificName": "Aerva javanica",
+    "localName": "የበረሃ ጥጥ Yebereha tete",
+    "habitat": "Dry sandy plains, dried river courses",
+    "partsUsed": "Leaves, roots",
+    "uses": "Treatment of kidney stones, urinary disorders, inflammation",
+    "category": "General Well-being"
+  },
+  {
+    "id": "alliaceae,-allium-sativum",
+    "no": "",
+    "scientificName": "Alliaceae, Allium sativum",
+    "localName": "ነጭ ሽንኩርት Nech shinkurt",
+    "habitat": "Cultivated",
+    "partsUsed": "Bulb",
+    "uses": "Antimicrobial effects, blood pressure, and cholesterol reduction",
+    "category": "Infections"
+  },
+  {
+    "id": "aloe-monticola",
+    "no": "",
+    "scientificName": "Aloe monticola",
+    "localName": "እሬት Eret",
+    "habitat": "Steep bare mountain slopes",
+    "partsUsed": "Root",
+    "uses": "Anthrax treatment by root pounding and mixing with cold water and local alcohol",
+    "category": "Respiratory"
+  },
+  {
+    "id": "amaranthus-caudatus",
+    "no": "",
+    "scientificName": "Amaranthus caudatus",
+    "localName": "ጭጎጎት Chigogot",
+    "habitat": "Roadsides, riverbanks, floodplains",
+    "partsUsed": "Leaves",
+    "uses": "Diarrhea is cured through pounded and boiled leaves",
+    "category": "Digestive"
+  },
+  {
+    "id": "argemone-mexicana",
+    "no": "",
+    "scientificName": "Argemone mexicana",
+    "localName": "የአህያ እሾህ Yahyaeshoh",
+    "habitat": "Roadside, wastelands",
+    "partsUsed": "Seeds, leaves",
+    "uses": "Influenza and rabies treatment by crushing root or leaf and administration with water",
+    "category": "Respiratory"
+  },
+  {
+    "id": "artemisia-abyssinica",
+    "no": "",
+    "scientificName": "Artemisia abyssinica",
+    "localName": "ችኩኝ Chikugn",
+    "habitat": "Juniper forest, open grassland, fallow fields",
+    "partsUsed": "Fresh root",
+    "uses": "Protection from evil spirits through root crushing, smelling, and water normalization",
+    "category": "General Well-being"
+  },
+  {
+    "id": "barleria-eranthemoides",
+    "no": "",
+    "scientificName": "Barleria eranthemoides",
+    "localName": "የሴት አፍ Yeset af",
+    "habitat": "Acacia woodland scrublands",
+    "partsUsed": "Roots",
+    "uses": "Heartburn remedy",
+    "category": "Skin & Wound"
+  },
+  {
+    "id": "brassica-oleracea",
+    "no": "",
+    "scientificName": "Brassica oleracea",
+    "localName": "ጎመን Gomen",
+    "habitat": "Cultivated",
+    "partsUsed": "Leaves, stems",
+    "uses": "Nutritional supplementation, antioxidant properties",
+    "category": "General Well-being"
+  },
+  {
+    "id": "calpurnia-aurea",
+    "no": "",
+    "scientificName": "Calpurnia aurea",
+    "localName": "ድግታ Digita",
+    "habitat": "Forest margins, bushland/grassland, favored by overgrazing",
+    "partsUsed": "Leaves, roots, seeds",
+    "uses": "Prevention of snake bites by boiling leaves with honey, and amebiasis cure through crushing and boiling with a coffee leaf for a drink.",
+    "category": "General Well-being"
+  },
+  {
+    "id": "carica-papaya",
+    "no": "",
+    "scientificName": "Carica papaya",
+    "localName": "ፓፓያ Papaya",
+    "habitat": "Home gardens, small and large plantations",
+    "partsUsed": "Seeds",
+    "uses": "Treatment of diarrhea and ascariasis by consuming ground and boiled seeds with honey",
+    "category": "Digestive"
+  },
+  {
+    "id": "carissa-edulis",
+    "no": "",
+    "scientificName": "Carissa edulis",
+    "localName": "አጋም Agam",
+    "habitat": "Open Acacia bushland",
+    "partsUsed": "Root",
+    "uses": "Shortening labor periods before delivery of women",
+    "category": "General Well-being"
+  },
+  {
+    "id": "catha-edulis",
+    "no": "",
+    "scientificName": "Catha edulis",
+    "localName": "ጫት Chat",
+    "habitat": "Highlands",
+    "partsUsed": "Leaves",
+    "uses": "Stimulant, enhancing alertness and mood",
+    "category": "General Well-being"
+  },
+  {
+    "id": "citrus-aurantifolia",
+    "no": "",
+    "scientificName": "Citrus aurantifolia",
+    "localName": "ባህር ሎሚ Bahre-Lomi",
+    "habitat": "Lowlands, evergreen forest",
+    "partsUsed": "Fruit",
+    "uses": "Treating dermatophyte infections",
+    "category": "Infections"
+  },
+  {
+    "id": "citrus-sinensis",
+    "no": "",
+    "scientificName": "Citrus sinensis",
+    "localName": "ብርቱካን Birtukan",
+    "habitat": "Cultivated in irrigable areas",
+    "partsUsed": "Fruit, Bark",
+    "uses": "Treatment of stomach infections and wounds",
+    "category": "Digestive"
+  },
+  {
+    "id": "clerodendrum-myricoides",
+    "no": "",
+    "scientificName": "Clerodendrum myricoides",
+    "localName": "ምስሪች Misrich",
+    "habitat": "Not specified yet",
+    "partsUsed": "Root",
+    "uses": "Treatment of earaches and headaches",
+    "category": "Respiratory"
+  },
+  {
+    "id": "coffee-arabica",
+    "no": "",
+    "scientificName": "Coffee arabica",
+    "localName": "ቡና Buna",
+    "habitat": "Shaded coffee plantations",
+    "partsUsed": "Seeds",
+    "uses": "Curing diarrhea by pounding and mixing with honey",
+    "category": "Digestive"
+  },
+  {
+    "id": "coronopus-didymus",
+    "no": "",
+    "scientificName": "Coronopus didymus",
+    "localName": "ሱሩማ Surumaa",
+    "habitat": "Fields, roadsides",
+    "partsUsed": "Whole plant",
+    "uses": "Treatment of stomach disorders and as an antiscorbutic",
+    "category": "Digestive"
+  },
+  {
+    "id": "crinum-abyssinicum",
+    "no": "",
+    "scientificName": "Crinum abyssinicum",
+    "localName": "የጅብ ሽንኩርት Yejb shinkurt",
+    "habitat": "Waterlogged valleys, grasslands, swampy areas, fallow fields",
+    "partsUsed": "Leaves",
+    "uses": "Treatment of tumors in general",
+    "category": "General Well-being"
+  },
+  {
+    "id": "cucurbita-pepo",
+    "no": "",
+    "scientificName": "Cucurbita pepo",
+    "localName": "ዱባ/የበር ቅል Duba/Yebarqil",
+    "habitat": "Cultivated in home gardens, farmlands",
+    "partsUsed": "Leaves",
+    "uses": "Treatment of gastritis",
+    "category": "General Well-being"
+  },
+  {
+    "id": "datura-stramonium",
+    "no": "",
+    "scientificName": "Datura stramonium",
+    "localName": "አፄ ፋሪስ Atse-faris",
+    "habitat": "Disturbed places, waste ground, roadsides",
+    "partsUsed": "Seed",
+    "uses": "Treatment of depression",
+    "category": "General Well-being"
+  },
+  {
+    "id": "dorstenia-barnimiana",
+    "no": "",
+    "scientificName": "Dorstenia barnimiana",
+    "localName": "ወርቅ በመዳ Worq-bemeda",
+    "habitat": "Woodland, upland grassland, evergreen bushland",
+    "partsUsed": "Roots/tubers",
+    "uses": "Treatment of tumors visible on the body surface",
+    "category": "General Well-being"
+  },
+  {
+    "id": "drynaria-volkensii",
+    "no": "",
+    "scientificName": "Drynaria Volkensii",
+    "localName": "ተቀስብላ Tekesbila",
+    "habitat": "Mountainous regions",
+    "partsUsed": "Rhizome",
+    "uses": "Traditional bone healing",
+    "category": "General Well-being"
+  },
+  {
+    "id": "echinops-kebericho",
+    "no": "",
+    "scientificName": "Echinops kebericho",
+    "localName": "ቀበሪቾ Kebericho",
+    "habitat": "Montane Acacia Woodland, disturbed bushland",
+    "partsUsed": "Root",
+    "uses": "Treatment of toothaches, vomiting, and headaches",
+    "category": "Respiratory"
+  },
+  {
+    "id": "erythrina-abyssinica",
+    "no": "",
+    "scientificName": "Erythrina abyssinica",
+    "localName": "ቆርቆሮ Korkoro",
+    "habitat": "Woodlands",
+    "partsUsed": "Bark, Roots",
+    "uses": "Anti-inflammatory properties and treatment of wounds",
+    "category": "Skin & Wound"
+  },
+  {
+    "id": "eucalyptus-globules-labill",
+    "no": "",
+    "scientificName": "Eucalyptus globules Labill",
+    "localName": "ነጭ ባህርዛፍ Nech-bahirzaf",
+    "habitat": "Various sites including plantations",
+    "partsUsed": "Leaves",
+    "uses": "Treatment of influenza and allergies",
+    "category": "Respiratory"
+  },
+  {
+    "id": "euphorbia-abyssinica",
+    "no": "",
+    "scientificName": "Euphorbia abyssinica",
+    "localName": "ቁልቋል Qulkual",
+    "habitat": "Steep rocky hillsides, around churches, live fences",
+    "partsUsed": "Latex",
+    "uses": "Treatment of skin cancer",
+    "category": "Skin & Wound"
+  },
+  {
+    "id": "euphorbia-tirucalli",
+    "no": "",
+    "scientificName": "Euphorbia tirucalli",
+    "localName": "ቅንጭብ Qinchib",
+    "habitat": "Live fence of home gardens",
+    "partsUsed": "Roots, Latex",
+    "uses": "Treatment of tumors/cancer",
+    "category": "General Well-being"
+  },
+  {
+    "id": "ficus-sycomorus",
+    "no": "",
+    "scientificName": "Ficus sycomorus",
+    "localName": "ባንባ Banba",
+    "habitat": "River and lake margins, woodland, forest edges and clearings, wooded grassland",
+    "partsUsed": "Bark",
+    "uses": "Curing hepatitis",
+    "category": "General Well-being"
+  },
+  {
+    "id": "gladiolus-schweinfurthii",
+    "no": "",
+    "scientificName": "Gladiolus schweinfurthii",
+    "localName": "ምላስ ጎልጉል Milas golgul",
+    "habitat": "Open grassland, Acacia woodland, rocky limestone slope",
+    "partsUsed": "Root",
+    "uses": "Treating headache",
+    "category": "Respiratory"
+  },
+  {
+    "id": "glinus-lotoides",
+    "no": "",
+    "scientificName": "Glinus lotoides",
+    "localName": "ምጥሬ/አምክን Meterie/Amkin",
+    "habitat": "Disturbed sites",
+    "partsUsed": "Leafy stem",
+    "uses": "Treatment of tapeworm",
+    "category": "Digestive"
+  },
+  {
+    "id": "guizotia-scabra",
+    "no": "",
+    "scientificName": "Guizotia scabra",
+    "localName": "አደይ አበባ Adey ababa",
+    "habitat": "Annual crop, cultivated in warm and temperate climates with moderate rainfall pattern",
+    "partsUsed": "Leaves",
+    "uses": "Wound treatment",
+    "category": "Skin & Wound"
+  },
+  {
+    "id": "justicia-schimperiana",
+    "no": "",
+    "scientificName": "Justicia schimperiana",
+    "localName": "ሰንሰል Sensel",
+    "habitat": "Open woodland, riverine vegetation, live fence of houses",
+    "partsUsed": "Leaves",
+    "uses": "Preventing bat urine",
+    "category": "General Well-being"
+  },
+  {
+    "id": "linum-usitatissimum",
+    "no": "",
+    "scientificName": "Linum usitatissimum",
+    "localName": "ተልባ Telba",
+    "habitat": "Cultivated",
+    "partsUsed": "Seeds",
+    "uses": "Laxative, cholesterol reduction, dietary supplement",
+    "category": "General Well-being"
+  },
+  {
+    "id": "malva-verticillata",
+    "no": "",
+    "scientificName": "Malva verticillata",
+    "localName": "ልጥ Lut",
+    "habitat": "Paths, clearings in upland forest, upland grassland, cultivated areas near houses",
+    "partsUsed": "Root",
+    "uses": "Curing cancer/tumor",
+    "category": "General Well-being"
+  },
+  {
+    "id": "moringa-stenopetala",
+    "no": "",
+    "scientificName": "Moringa stenopetala",
+    "localName": "ሽፈራው Shiferaw",
+    "habitat": "Cultivated in terraced fields, gardens, small towns, riverine and woodland",
+    "partsUsed": "Root",
+    "uses": "Relief from asthma",
+    "category": "Respiratory"
+  },
+  {
+    "id": "musa-sapientum",
+    "no": "",
+    "scientificName": "Musa sapientum",
+    "localName": "ኮባ Koba",
+    "habitat": "Cultivated on large irrigated farms and in-house gardens",
+    "partsUsed": "Bulb",
+    "uses": "Used as an abortion medicine",
+    "category": "General Well-being"
+  },
+  {
+    "id": "nicotiana-tabacum",
+    "no": "",
+    "scientificName": "Nicotiana tabacum",
+    "localName": "ትምባሆ Timbaho",
+    "habitat": "Cultivated in villages, home gardens, tobacco farms",
+    "partsUsed": "Leaves",
+    "uses": "Treating snakebites",
+    "category": "General Well-being"
+  },
+  {
+    "id": "nigella-sativa",
+    "no": "",
+    "scientificName": "Nigella sativa",
+    "localName": "ጥቁር አዝሙድ Tikur azmud",
+    "habitat": "Cultivated in homesteads, fields, also found in wild",
+    "partsUsed": "Seed",
+    "uses": "Treatment of asthma (chewed), runny nose and common cold (wrapped in a leaf and inserted into the nose), headache",
+    "category": "Respiratory"
+  },
+  {
+    "id": "ocimum-lamiifolium",
+    "no": "",
+    "scientificName": "Ocimum lamiifolium",
+    "localName": "ዳማካሴ Damakesie",
+    "habitat": "Acacia-Commiphora bush- and woodland, limestone slopes, home gardens",
+    "partsUsed": "Leaves",
+    "uses": "Treatment of fibril illness",
+    "category": "General Well-being"
+  },
+  {
+    "id": "olea-europaea",
+    "no": "",
+    "scientificName": "Olea europaea",
+    "localName": "ዎይራ Woira",
+    "habitat": "Home gardens, monasteries, churches, woody vegetation",
+    "partsUsed": "Leaves, Roots",
+    "uses": "Curing dysentery, stomachache, bone TB, wound treatment",
+    "category": "Digestive"
+  },
+  {
+    "id": "opuntia-ficusindica",
+    "no": "",
+    "scientificName": "Opuntia ficusindica",
+    "localName": "የባህር ቁልቋል Yebereha qulkual",
+    "habitat": "Disturbed areas, degraded areas, live fences of houses",
+    "partsUsed": "Leaves",
+    "uses": "Killing malaria vectors",
+    "category": "Infections"
+  },
+  {
+    "id": "pentas-lanceolate",
+    "no": "",
+    "scientificName": "Pentas lanceolate",
+    "localName": "ታባትም Tabatem",
+    "habitat": "Gardens, wild",
+    "partsUsed": "Leaves, Roots",
+    "uses": "Traditional remedies for skin infections",
+    "category": "Skin & Wound"
+  },
+  {
+    "id": "plumbago-zeylanica",
+    "no": "",
+    "scientificName": "Plumbago zeylanica",
+    "localName": "አሚራ Amira",
+    "habitat": "Disturbed habitats by roads and paths, bushland, woodland, savannah",
+    "partsUsed": "Root",
+    "uses": "Preventing gonorrhea, hemorrhoids, toothache, and mastitis; used as an antiseptic",
+    "category": "Pain Relief"
+  },
+  {
+    "id": "premna-schimperi",
+    "no": "",
+    "scientificName": "Premna schimperi",
+    "localName": "ቾቾ Chocho",
+    "habitat": "Degraded and secondary forests, grassy meadows, along forest paths",
+    "partsUsed": "Root, Leaves",
+    "uses": "Treating mastitis, preventing boils",
+    "category": "General Well-being"
+  },
+  {
+    "id": "rhamnus-prinoides",
+    "no": "",
+    "scientificName": "Rhamnus prinoides",
+    "localName": "ጌሽሖ Gesho",
+    "habitat": "Highlands",
+    "partsUsed": "Leaves, bark",
+    "uses": "Brewing, stomachic, antimicrobial",
+    "category": "Digestive"
+  },
+  {
+    "id": "rosa-abyssinica",
+    "no": "",
+    "scientificName": "Rosa abyssinica",
+    "localName": "አበባ Abeba",
+    "habitat": "Highlands",
+    "partsUsed": "Flowers",
+    "uses": "Aromatic, decorations, traditional medicine",
+    "category": "General Well-being"
+  },
+  {
+    "id": "ruta-chalepensis",
+    "no": "",
+    "scientificName": "Ruta chalepensis",
+    "localName": "ጥናዳም Tenadam",
+    "habitat": "Cultivated, wild",
+    "partsUsed": "Leaves, stems",
+    "uses": "Relieving stomach ache through cold water maceration and ingestion",
+    "category": "Respiratory"
+  },
+  {
+    "id": "schinus-molle",
+    "no": "",
+    "scientificName": "Schinus molle",
+    "localName": "ቁንዶ በርበሬ Qundo berbere",
+    "habitat": "Cultivated, wild",
+    "partsUsed": "Fruits, bark",
+    "uses": "Analgesic, antimicrobial, spice",
+    "category": "Pain Relief"
+  },
+  {
+    "id": "solanum-incanum",
+    "no": "",
+    "scientificName": "Solanum incanum",
+    "localName": "ጥቁር አውድ Tikur awud",
+    "habitat": "Cultivated, riverine gallery forest, disturbed habitats",
+    "partsUsed": "Leaves, roots",
+    "uses": "Treating bleeding, menstruation, amebiasis",
+    "category": "General Well-being"
+  },
+  {
+    "id": "solanum-nigrum",
+    "no": "",
+    "scientificName": "Solanum nigrum",
+    "localName": "እምቧይ Embuay",
+    "habitat": "Cultivation, ruderal areas, roadsides, bushland",
+    "partsUsed": "Leaves, roots, stems",
+    "uses": "Treatment of cancerous sores, and wounds; eaten as pot herb for virility, dysmenorrhea, dysentery, sore throat",
+    "category": "Digestive"
+  },
+  {
+    "id": "spathodea-campanulata",
+    "no": "",
+    "scientificName": "Spathodea campanulata",
+    "localName": "አባሎ Abalo",
+    "habitat": "Rainforests, savannas, riverbanks",
+    "partsUsed": "Flowers, Bark",
+    "uses": "Anti-inflammatory, wound healing, gastrointestinal issues",
+    "category": "Digestive"
+  },
+  {
+    "id": "stephania-abyssinica",
+    "no": "",
+    "scientificName": "Stephania abyssinica",
+    "localName": "ያይት ሀረግ Yayit hareg",
+    "habitat": "Thickets, forest margins, hillsides, cultivated fields",
+    "partsUsed": "Root",
+    "uses": "Treatment of external tumors/cancer, stomachache",
+    "category": "Digestive"
+  },
+  {
+    "id": "stereospermum-kunthianum",
+    "no": "",
+    "scientificName": "Stereospermum kunthianum",
+    "localName": "አርዝያ Arziniya",
+    "habitat": "Open woodland, savanna, widespread in tropical Africa",
+    "partsUsed": "Bark",
+    "uses": "Treatment of kidney issues through drinking juice crushed from bark",
+    "category": "General Well-being"
+  },
+  {
+    "id": "thunbergia-erecta",
+    "no": "",
+    "scientificName": "Thunbergia erecta",
+    "localName": "ማርት Marte",
+    "habitat": "Woodland, grassland, evergreen forest",
+    "partsUsed": "Not reported",
+    "uses": "Curing poisonous snakebites",
+    "category": "General Well-being"
+  },
+  {
+    "id": "thymus-capitatus",
+    "no": "",
+    "scientificName": "Thymus capitatus",
+    "localName": "ጦስኝ Tosign",
+    "habitat": "Home garden",
+    "partsUsed": "Leaves",
+    "uses": "Treatment of stomach diseases, cough, asthma",
+    "category": "Respiratory"
+  },
+  {
+    "id": "tribulus-terrestris",
+    "no": "",
+    "scientificName": "Tribulus terrestris",
+    "localName": "ኩርንችት Kurnchit",
+    "habitat": "Open, disturbed places, often on sandy soils",
+    "partsUsed": "Stem, Fruit, Seed",
+    "uses": "Treatment of various ailments including scabrous skin diseases, congestion, headache, hepatitis, vertigo, etc.",
+    "category": "Respiratory"
+  },
+  {
+    "id": "urtica-pilulifera",
+    "no": "",
+    "scientificName": "Urtica pilulifera",
+    "localName": "ሳማ Sama",
+    "habitat": "Waste grounds, roadsides, cultivated fields",
+    "partsUsed": "Leaves",
+    "uses": "Treatment of sore joints, rheumatism, hemorrhage",
+    "category": "Pain Relief"
+  },
+  {
+    "id": "vernonia-amygdalina",
+    "no": "",
+    "scientificName": "Vernonia amygdalina",
+    "localName": "ግራር Girawa",
+    "habitat": "Bush/woodland, forest habitats, home gardens",
+    "partsUsed": "Leaves",
+    "uses": "Prevention of headaches, and intestinal worms; treatment of tumors/cancer",
+    "category": "Respiratory"
+  },
+  {
+    "id": "withania-somnifera",
+    "no": "",
+    "scientificName": "Withania somnifera",
+    "localName": "ግዛዋ Gizawa",
+    "habitat": "Cultivation, lake shores, riverbanks, open woodland",
+    "partsUsed": "Leaves",
+    "uses": "Treatment of malaria",
+    "category": "Infections"
+  },
+  {
+    "id": "xanthium-strumarium",
+    "no": "",
+    "scientificName": "Xanthium strumarium",
+    "localName": "ድሃ ንቅል Deha nikel",
+    "habitat": "Wet forest margins, riverine vegetation",
+    "partsUsed": "Leaves",
+    "uses": "Treatment of dandruff",
+    "category": "General Well-being"
+  },
+  {
+    "id": "ximenia-americana",
+    "no": "",
+    "scientificName": "Ximenia americana",
+    "localName": "እንኮይ Enkoy",
+    "habitat": "Acacia woodland, wooded grassland",
+    "partsUsed": "Fruit, Kernel, Root",
+    "uses": "Preventing infections in fresh wounds, treating stomachache, tonsillitis",
+    "category": "Respiratory"
+  },
+  {
+    "id": "zingiber-officinale-roscoe",
+    "no": "",
+    "scientificName": "Zingiber officinale Roscoe",
+    "localName": "ዝንጅብል Zengibil",
+    "habitat": "Cultivated",
+    "partsUsed": "Roots",
+    "uses": "Treatment of digestion problems, inflammation",
+    "category": "Digestive"
+  }
+]

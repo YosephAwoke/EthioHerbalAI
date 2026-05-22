@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-abyssinian-950 text-abyssinian-50 font-sans antialiased overflow-x-hidden;
+    background: radial-gradient(circle at 50% 0%, #0d271f 0%, #070e0c 60%, #030504 100%);
+    min-height: 100vh;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-white;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #070e0c;
+}
+::-webkit-scrollbar-thumb {
+  background: #173229;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #21473a;
+}
+
+/* Custom Glassmorphism Panels */
+.glass-panel {
+  background: rgba(10, 22, 18, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(70, 149, 120, 0.15);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(10, 22, 18, 0.8);
+  border-color: rgba(245, 158, 11, 0.3); /* Glow Gold */
+  box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.15);
+  transform: translateY(-2px);
+}
+
+/* AI Laser Scanner sweep overlay */
+.laser-line {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(245, 158, 11, 0.2) 40%,
+    rgba(245, 158, 11, 0.8) 50%,
+    rgba(245, 158, 11, 0.2) 60%,
+    transparent
+  );
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+}
+
+/* Glowing Typography */
+.text-glow-gold {
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.3), 0 0 20px rgba(245, 158, 11, 0.1);
+}
+
+.text-glow-green {
+  text-shadow: 0 0 10px rgba(70, 149, 120, 0.4), 0 0 20px rgba(70, 149, 120, 0.1);
+}
+
+/* Interactive Map Pulse Pins */
+.map-pulse {
+  position: relative;
+}
+.map-pulse::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: inherit;
+  border-radius: 50%;
+  animation: mapPulseAnim 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+@keyframes mapPulseAnim {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,590 @@
+THESIS SUMMARY EXTRACTOR
+Total Pages: 145
+
+--- ABSTRACT & INTRODUCTION PAGES ---
+[PAGE 1]
+ 
+ 
+分类号                 学号 I202221112      
+学校代码 10487               密级                 
+ 
+ 
+ 
+ 
+硕士学位论文  
+（学术型      专业型□） 
+ 
+ 
+基于深度学习的埃塞俄比亚医学植物
+图像识别研究 
+ 
+ 
+ 
+学位申请人 ：  冯 廷 (YOSEPH AWOKE FENTIE)   
+学 科 专 业 ：  信息与通信工程   
+指 导 教 师 ：  副研究员 廖振宇   
+答 辩 日 期 ：  2024 年 04 月 15日   
+ 
+ 
+ 
+
+[PAGE 2]
+ 
+ 
+A Dissertation Submitted in Partial Fulfillment of the Requirements 
+for the Master's Degree in Engineering 
+  
+ 
+Developing a Deep Learning-Based Image Classification 
+and Information System for Ethiopian Traditional 
+Medicinal Plants 
+ 
+ 
+ 
+Candidate : YOSEPH AWOKE FENTIE 
+Major   : Information and Communication Engineering 
+Supervisor : Associate Researcher ZHENYU LIAO 
+ 
+ 
+ 
+ 
+ 
+Huazhong University of Science and Technology 
+Wuhan 430074, P. R. China 
+April, 2024 
+ 
+[PAGE 3]
+ 
+ 
+独创性声明 
+ 
+本人声明所呈交的学位论文是我个人在导师指导下进行的研究工作及取得的研究
+成果。尽我所知，除文中已经标明引用的内容外，本论文不包含任何其他个人或集体已
+经发表或撰写过的研究成果。对本文的研究做出贡献的个人和集体，均已在文中以明确
+方式标明。本人完全意识到本声明的法律结果由本人承担。 
+ 
+学位论文作者签名： 
+  日期：     年   月   日 
+ 
+ 
+ 
+ 
+学位论文版权使用授权书 
+ 
+本学位论文作者完全了解学校有关保留、使用学位论文的规定，即：学校有权保留
+并向国家有关部门或机构送交论文的复印件和电子版，允许论文被查阅和借阅。本人授
+权华中科技大学可以将本学位论文的全部或部分内容编入有关数据库进行检索， 可以采
+用影印、缩印或扫描等复制手段保存和汇编本学位论文。 
+保  密□，在      年解密后适用本授权书。 
+不保密 。 
+（请在以上方框内打“√”） 
+ 
+ 
+学位论文作者签名：              指导教师签名： 
+日期：    年   月   日        日期：    年   月   日 
+本论文属于 
+[PAGE 4]
+华 中 科 技 大 学 硕 士 学 位 论 文 
+ 
+I 
+ 
+摘 要 
+这篇论文标志着在基于深度学习的图像分类领域，特别是针对埃塞俄比亚传统药用
+植物的创新努力。这项研究以其致力于解决埃塞俄比亚传统医学中的独特挑战而著称，
+包括意识空白、文献不足和生物多样性保护，突显了埃塞俄比亚传统医学在医疗保健方
+面的重要意义。 这项研究的创新之处在于开发了一个包含24,000 张图像的全面数据集，
+代表了 64 种埃塞俄比亚传统药用植物的植物物种，填补了现有文献中的重要空白，并
+确保了专门针对埃塞俄比亚背景设计的分类系统的准确性和相关性。 
+在方法上，该研究采用了多方面的方法，包括自定义卷积神经网络（CNN）架构和使
+用视觉几何组（VGG16）、Inception版本 3（InceptionV3）、Inception 残差网络版本2
+（InceptionResNetV2）和Mobile 网络版本2（MobileNetV2）等已建立的预训练模型进
+行迁移学习。 训练多个模型并进行比较分析突显了系统方法和确定任务中最有效模型的
+目标。通过超参数调整和严格评估，InceptionResNetV2 以出色的 97.6％准确率脱颖而
+出。 
+在模型开发之外，该研究通过创建一个用户友好的移动和Web 应用程序界面来扩展
+其影响，以部署模型，探索量化以提高模型效率。这使用户可以轻松识别植物并获取全
+面的药用信息。该应用程序的离线功能设计为在网络连接有限的偏远地区使用。 
+这些发现代表了在基于深度学习的图像分类方面的显着进展，对埃塞俄比亚传统医
+学具有深远的影响。 通过解决关键挑战并强调实际应用性， 这项研究不仅使科学界受益，
+还为传统医学从业者带来了希望，并为这一崇高领域的进一步探索奠定了坚实基础。 
+ 
+关键词：深度学习、传统医学、CNN、迁移学习、图像预处理、信息检索系统 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+[PAGE 5]
+华 中 科 技 大 学 硕 士 学 位 论 文 
+ 
+II 
+ 
+Abstract 
+This thesis marks a n innovative effort in the domain of deep learning -based image 
+classification, specifically tailored to Ethiopian traditional medicinal plants. Distinguished by 
+its commitment to addressing unique challenges within Ethiopian traditional medicine, 
+including awareness gaps , inadequate documentation,  and biodiversity preservation, this 
+research highlights the profound significance of Ethiopian traditional medicine in healthcare 
+provision. Center to the novelty of this research is the development of a comprehensive dataset 
+comprising 24,000 images representing 64 plant species of Ethiopian traditional medicinal 
+plants stands as a testament to this commitment, filling a crucial void in existing literature and 
+ensuring the accuracy and relevance of the classification system specifically designed for the 
+Ethiopian context. 
+Methodologically, the study adopts a multifaceted approach, encompassing custom 
+Convolutional Neural Network (CNN) architecture and transfer learning with well-established 
+pre-trained models including Visual Geometry Group (VGG16), Inception Version 3 
+(InceptionV3), Inception Residual Network Version 2 (InceptionResNetV2), and Mobile 
+Network Version 2 (MobileNetV2).  Training multiple models and conducting comparative 
+analysis underscores the systematic method and the goal of identifying the most effective 
+model for the task at hand.  Through hyperparameter tuning and rigorous evaluation , 
+InceptionResNetV2 emerges as a standout performer with exceptional 97.6% accuracy.  
+Beyond model development, the research extends its impact through the creation of a user-
+friendly mobile and web application interface  for model deployment after exploration of 
+quantization to enhance model efficiency. This  empowers users to seamlessly identify plants 
+and access comprehensive medicinal information. Designed for accessibility, the application's 
+offline functionality ensures usability even in remote areas with limited internet connectivity. 
+These findings represent a notable advance in deep learning -based image classification, 
+with profound implications for Ethiopian traditional medicine. By addressing critical 
+challenges and emphasizing practical applicability, this research not only benefits the scientific 
+community but also holds p romise for traditional medicine practitioners, setting a firm 
+foundation for further exploration in this noble area of study. 
+Keywords: Deep learning, Traditional medicine, CNN, Transfer learning, Image 
+preprocessing, Information retrieval system 
+ 
+[PAGE 6]
+华 中 科 技 大 学 硕 士 学 位 论 文 
+ 
+III 
+ 
+Table of Contents 
+ 
+摘 要 ......................................................................................................................................... I 
+ABSTRACT ............................................................................................................................. II 
+LIST OF ABBREVIATIONS ................................................................................................. V 
+LIST OF FIGURES .............................................................................................................. VI 
+LIST OF TABLES .............................................................................................................. VIII 
+1 INTRODUCTION............................................................................................................ 1 
+1.1 Background ........................................................................................................................ 1 
+1.2 Motivation .......................................................................................................................... 3 
+1.3 Related Work ...................................................................................................................... 4 
+1.4 Problem Statement ........................................................................................................... 10 
+1.5 Objective .......................................................................................................................... 11 
+1.6 Significance and Scope .................................................................................................... 12 
+1.7 Thesis Organization ......................................................................................................... 14 
+2 AN OVERVIEW OF DEEP LEARNING FOR PLANT CLASSIFICATION ......... 16 
+2.1 Overview of Deep Learning............................................................................................. 16 
+2.2 CNN Architecture ............................................................................................................ 18 
+2.3 CNN in Plant Classification ............................................................................................. 23 
+2.4 Data Augmentation and Normalization ........................................................................... 25 
+2.5 Regularization of CNN .................................................................................................... 27 
+2.6 Popular CNN Architectures ............................................................................................. 30 
+2.7 Transfer Learning in Plant Classification ........................................................................ 34 
+2.8 TensorFlow and Keras ..................................................................................................... 36 
+2.9 Chapter Summary ............................................................................................................ 37 
+3 DESIGN AND METHODOLOGY ............................................................................... 39 
+3.1 Dataset.............................................................................................................................. 39 
+[PAGE 7]
+华 中 科 技 大 学 硕 士 学 位 论 文 
+ 
+IV 
+ 
+3.2 Data Preprocessing and Normalization ............................................................................ 42 
+3.3 Custom CNN Model Architecture ................................................................................... 44 
+3.4 Transfer Learning Implementation .................................................................................. 51 
+3.5 Model Evaluation and Optimization ................................................................................ 55 
+3.6 Model Deployment .......................................................................................................... 58 
+3.7 Chapter Summary ............................................................................................................ 64 
+4 EXPERIMENTAL RESULTS AND DISCUSSION .................................................... 66 
+4.1 Environment Setup........................................................................................................... 66 
+4.2 Experiment 1: Image Preprocessing Implementation ...................................................... 68 
+4.3 Experiment 2: Implementation of Custom CNN Architecture ........................................ 71 
+4.4 Performance Evaluation of the Custom CNN Model ...................................................... 75 
+4.5 Experiment 3: Transfer Learning Implementation ........................................................... 81 
+4.6 Evaluation of Transfer Learning Models Performance .................................................... 84 
+4.7 Comparative Analysis of Trained Models........................................................................ 95 
+4.8 Model Deployment .......................................................................................................... 99 
+4.9 Chapter Summary .......................................................................................................... 108 
+5 SUMMARY AND OUTLOOK ................................................................................... 110 
+5.1 Conclusion ..................................................................................................................... 110 
+5.2 Innovative Initiatives ..................................................................................................... 111 
+5.3 Contributions.................................................................................................................. 112 
+5.4 Limitations ..................................................................................................................... 114 
+5.5 Future Directions and Recommendations ...................................................................... 115 
+5.6 Summary ........................................................................................................................ 118 
+ACKNOWLEDGMENT ..................................................................................................... 120 
+REFERENCE ....................................................................................................................... 121 
+APPENDIX 1: CODE IMPLEMENTATIONS ................................................................. 127 
+APPENDIX 2: ETHIOPIAN COMMON TRADITIONAL MEDICINAL PLANTS ... 131  
+[PAGE 8]
+华 中 科 技 大 学 硕 士 学 位 论 文 
+ 
+V 
+ 
+List of Abbreviations 
+Acronyms Acronyms 
+CNN Convolutional Neural Network 
+VGG16 Visual Geometry Group 
+InceptionV3 
+InceptionResNetV2 
+MobileNetV2 
+UI 
+ResNet 
+DenseNet 
+U-Net 
+KNN 
+SVM 
+RF 
+API 
+NLP 
+ReLU 
+Tanh 
+ANN 
+DNN 
+ILSVRC 
+GPU 
+SGD 
+PIL 
+NumPy 
+TFLite 
+AUC-ROC 
+ 
+ 
+ 
+ 
+Inception Version 3 
+Inception Residual Network Version 2 
+Mobile Network Version 2 
+User Interface 
+Residual Network 
+Densely Connected Convolutional Networks 
+U-shaped encoder-decoder network 
+k-nearest neighbor  
+Support Vector Machine 
+Random Forest 
+Application Programming Interface 
+Natural Language Processing 
+Rectified Linear Unit 
+Hyperbolic Tangent 
+Artificial Neural Network 
+Deep Neural Network 
+ImageNet Large Scale Visual Recognition Challenge 
+Graphics Processing Unit 
+Stochastic gradient descent 
+Python Imaging Library 
+Numeric Python 
+TensorFlow Lite 
+Area Under the Receiver Operating Characteristic Curve 
+[PAGE 9]
+华 中 科 技 大 学 硕 士 学 位 论 文 
+ 
+VI 
+ 
+List of Figures 
+Figure 1-1 Preparation of medication from herbs ...................................................................... 1 
+Figure 1-2 Thesis Research Map ............................................................................................. 15 
+Figure 2-1 The performance of deep learning concerning the amount of data ........................ 18 
+Figure 2-2 Full architecture of CNN ........................................................................................ 19 
+Figure 2-3 Convolutional layer[53] ........................................................................................... 20 
+Figure 2-4 Pooling on 2-by-2 blocks[56] ................................................................................... 21 
+Figure 2-5 Fully-connected layer ............................................................................................. 23 
+Figure 2-6 Example of data augmentation implementation ..................................................... 26 
+Figure 2-7 Regularization to CNN[67] ...................................................................................... 29 
+Figure 2-8 Transfer learning with fine-tuning ......................................................................... 35 
+Figure 2-9 TensorFlow 2.0 architecture ................................................................................... 36 
+Figure 3-1 Sample of different plant species in the dataset ..................................................... 39 
+Figure 3-2 Visualization of class distribution .......................................................................... 41 
+Figure 3-3 Distribution of the dataset for the training ............................................................. 43 
+Figure 3-4 A proposed custom CNN model’s architecture design ........................................... 47 
+Figure 3-5 A workflow of model development ........................................................................ 51 
+Figure 3-6 A proposed transfer learning architecture design ................................................... 53 
+Figure 3-7 InceptionV3 architecture[90] ................................................................................... 55 
+Figure 3-8 A workflow of proposed model architecture design .............................................. 58 
+Figure 3-9 Web app architecture diagram ................................................................................ 61 
+Figure 3-10 Mobile app architecture diagram ......................................................................... 64 
+Figure 4-1 Selected development tools .................................................................................... 68 
+Figure 4-2 Sample image resize demo ..................................................................................... 69 
+Figure 4-3 Visualization of data augmentation implementation .............................................. 71 
+Figure 4-4 CNN model creation Summary .............................................................................. 73 
+Figure 4-5 Performance of evaluation metrics on custom CNN model ................................... 75 
+Figure 4-6 Loss values of data generators ............................................................................... 76 
+Figure 4-7 Training and Validation’s Accuracy/Loss Curve .................................................... 77 
+Figure 4-8 Training and Validation’s Precision/Recall Curve ................................................. 77 
+Figure 4-9 Confusion matric predication insights for the model ............................................. 78 
+Figure 4-10 Random evaluation of the model on test images ................................................. 79 
+[PAGE 10]
+华 中 科 技 大 学 硕 士 学 位 论 文 
+ 
+VII 
+ 
+Figure 4-11 Required modules to apply pre-trained models .................................................... 82 
+Figure 4-12 Loading pre-trained models ................................................................................. 82 
+Figure 4-13 Train and Validation’s Accuracy/Loss of InceptionV3 ........................................ 85 
+Figure 4-14 Train and Validation’s Precision, Recall, and Loss of InceptionV3 ..................... 86 
+Figure 4-15 Confusion matrix’s insight of InceptionV3 model on the test set ........................ 86 
+Figure 4-16 Random evaluation of the InceptionV3 model on test images ............................ 87 
+Figure 4-17 Train and Validation’s Accuracy/Loss of VGG16 ................................................ 88 
+Figure 4-18 Train and Validation’s Precision/Recall of VGG16 ............................................. 88 
+Figure 4-19 Random evaluation of the VGG16 model on test images .................................... 89 
+Figure 4-20 Train and Validation’s Accuracy/Loss of InceptionResNetV2 ............................. 90 
+Figure 4-21 Train and Validation’s Precision, Recall, and Loss of InceptionResNetV2 ......... 91 
+Figure 4-22 Random evaluation of the InceptionResNetV2 model on test images ................. 91 
+Figure 4-23 Confusion matrix’s insight of InceptionResNetV2 model on the test set ............ 92 
+Figure 4-24 Train and Validation’s Accuracy/Loss of MobileNetV2 ...................................... 93 
+Figure 4-25 Confusion matrix’s insight of MobileNetV2 model on the test set ...................... 94 
+Figure 4-26 Random evaluation of the MobileNetV2 on test images ..................................... 95 
+Figure 4-27 Trained models performance comparison on training data using key metrics ..... 96 
+Figure 4-28 Models performance comparison on test data ...................................................... 97 
+Figure 4-29 Loss values comparison on training and test data ................................................ 98 
+Figure 4-30 Handling Image Uploads.................................................................................... 100 
+Figure 4-31 FastAPI server running and responding to request ............................................ 101 
+Figure 4-32 A server’s response for the uploaded image inside Postman ............................. 102 
+Figure 4-33 User Interface of the Client-Side ReactJS app ................................................... 103 
+Figure 4-34 A prediction result inside the web app ............................................................... 103 
+Figure 4-35 InceptionResNetV2 size before and after quantization ...................................... 106 
+Figure 4-36 User Interaction to the Model through the Mobile App UI ................................ 108 
+[PAGE 11]
+华 中 科 技 大 学 硕 士 学 位 论 文 
+ 
+VIII 
+ 
+List of Tables 
+  
+Table 1-1 Summary of reviewed related works ......................................................................... 8 
+Table 2-1 A comparison between different CNN architectures ............................................... 33 
+Table 3-1 Descriptions of curated dataset ................................................................................ 40 
+Table 3-2 Dataset Overview ..................................................................................................... 40 
+Table 3-3 Selected pre-trained models’ comparison ................................................................ 54 
+Table 3-4 Performance evaluation metrics .............................................................................. 56 
+Table 4-1 Hardware Resource .................................................................................................. 67 
+Table 4-2 Performance evaluation of the custom-built model ................................................. 76 
+Table 4-3 Performance evaluation of InceptionV3 .................................................................. 85 
+Table 4-4 Performance evaluation of VGG16 ......................................................................... 88 
+Table 4-5 Performance evaluation of InceptionResNetV2 ...................................................... 90 
+Table 4-6 Performance evaluation of MobileNetV2 ................................................................ 93 
+Table 4-7 Performance comparison of trained models ............................................................ 98 
+ 
+ 
+[PAGE 12]
+华 中 科 技 大 学 硕 士 学 位 论 文 
+ 1 
+1 Introduction 
+1.1 Background 
+In recent years, significant advancements in deep learning, particularly within the realm of 
+image classification, have underscored its efficacy. As a subset of machine learning, deep 
+learning excels in image classification tasks by learning complex hierarchical representa tions 
+directly from raw data [1,2]. CNNs, a prominent type of deep learning model, have shown 
+outstanding performance across various applications including image classification, object 
+detection, and image segmentation[3–5]. Particularly in plant classification, CNNs have proven 
+highly effective, distinguishing plant species with remarkable accuracy based on distinct leaf 
+features like patterns, shapes, textures, and veins [6–8]. This capability to autonomously extract 
+and analyze image features enables precise species identification and categorization. 
+Ethiopia, often referred to as the “cradle of mankind”, is known for its diverse landscapes, 
+climates, and natural resources, which support a variety of flora and fauna [9]. It has been 
+recognized as one of the most biodiverse countries in Africa, with approximately 6,000 plant 
+species, 10% of which are endemic to Ethiopia [10]. Among these plant species, about 800 are 
+utilized for medicinal purposes by various ethnic groups and local healers [11,12]. Ethiopian 
+traditional medicinal plants have long been used as a fundamental part of healthcare practices, 
+with a rich heritage of botanical knowledge passed down through generations. These plants are 
+employed in the treatment of a wide range of health problems including malaria, diarrhea, 
+wounds, infections, diabetes, hypertension, and more. Studies have shown that the main reason 
+for relying on traditional medicine is the lack of access to modern healthcare options[13–15]. 
+ 
+Figure 1-1 Preparation of medication from herbs 
+According to some estimates, about 80% of the Ethiopian population relies on traditional 
+medicine as their primary source of health care [16–18]. However, despite its importance and 
+
+
+--- SEARCH HIGHLIGHTS for 'InceptionResNetV2' & 'Accuracy' ---
+[PAGE 4 MATCH]
+  （InceptionResNetV2）和Mobile 网络版本2（MobileNetV2）等已建立的预训练模型进
+  目标。通过超参数调整和严格评估，InceptionResNetV2 以出色的 97.6％准确率脱颖而
+[PAGE 5 MATCH]
+  provision. Center to the novelty of this research is the development of a comprehensive dataset
+  ensuring the accuracy and relevance of the classification system specifically designed for the
+  (InceptionV3), Inception Residual Network Version 2 (InceptionResNetV2), and Mobile
+  InceptionResNetV2 emerges as a standout performer with exceptional 97.6% accuracy.
+[PAGE 8 MATCH]
+  InceptionResNetV2
+[PAGE 9 MATCH]
+  Figure 3-1 Sample of different plant species in the dataset ..................................................... 39
+  Figure 3-3 Distribution of the dataset for the training ............................................................. 43
+  Figure 4-7 Training and Validation’s Accuracy/Loss Curve .................................................... 77
+[PAGE 10 MATCH]
+  Figure 4-13 Train and Validation’s Accuracy/Loss of InceptionV3 ........................................ 85
+  Figure 4-17 Train and Validation’s Accuracy/Loss of VGG16 ................................................ 88
+  Figure 4-20 Train and Validation’s Accuracy/Loss of InceptionResNetV2 ............................. 90
+  Figure 4-21 Train and Validation’s Precision, Recall, and Loss of InceptionResNetV2 ......... 91
+  Figure 4-22 Random evaluation of the InceptionResNetV2 model on test images ................. 91
+  Figure 4-23 Confusion matrix’s insight of InceptionResNetV2 model on the test set ............ 92
+  Figure 4-24 Train and Validation’s Accuracy/Loss of MobileNetV2 ...................................... 93
+  Figure 4-35 InceptionResNetV2 size before and after quantization ...................................... 106
+[PAGE 11 MATCH]
+  Table 3-1 Descriptions of curated dataset ................................................................................ 40
+  Table 3-2 Dataset Overview ..................................................................................................... 40
+  Table 4-5 Performance evaluation of InceptionResNetV2 ...................................................... 90
+[PAGE 13 MATCH]
+  Compounding these challenges is the absence of a comprehensive image-based dataset of
+  Ethiopian medicinal plants. Without such a dataset, researchers and practitioners are hindered
+  1) Creation of an Image-Based Dataset of Ethiopian Traditional Medicinal Plants:
+  This foundational dataset will catalog a diverse range of images of Ethiopian traditional
+  InceptionResNetV2[24], and MobileNetV2[25]. The models will be fine -tuned using the newly
+  developed image dataset of Ethiopian medicinal plants.  This technique  capitalizes on the
+[PAGE 14 MATCH]
+  terms of accuracy and efficiency under the constraints of limited training data and
+[PAGE 17 MATCH]
+  Note: The papers discussed in this context did not provide image -based datasets
+  assist in the collection of primary image datasets for the identified plant species that are widely
+  creation of a comprehensive image dataset.
+  precision agriculture applications. It uses the public dataset “Plant Seedlings Dataset”, which
+  flipping, to increase the size and diversity of the dataset. It also compares the performance of
+  Convolutional Networks (DenseNet), and InceptionResNetV2, on the plant classification task.
+  It shows that the proposed system achieves an accuracy of 96.5%, which is higher than the
+[PAGE 19 MATCH]
+  logistic regression for the Leaf12 dataset. This research underscores the potential of combining
+  representation and classification accuracy in botanical studies.
+  an average accuracy of 96.08% in identifying six classes of rice leaf conditions.
+  The study in [41] introduced a new dataset of medicinal plants, covering ten different species
+  medicinal plants. The classifier demonstrated a high accuracy of 97.43%, showing potential for
+  Dataset and
+  size Accuracy Limitations
+  InceptionResNetV2
+  Dataset”, ~960
+  96.5% The dataset may not
+  87.92% Limited dataset size and
+  dataset may not
+  InceptionResNetV2
+[PAGE 43 MATCH]
+  complexity. It is suitable for tasks requiring high accuracy and efficiency, such as image
+  where increasing the depth of the network leads to a decrease in accuracy. ResNet uses residual
+  accuracy as the depth increases.
+  2.6.5 InceptionResNetV2
+  InceptionResNetV2 was developed by researchers at Google and was released in 2016.
+  higher accuracy and efficiency [79]. InceptionResNetV2 is suitable for tasks requiring high
+  accuracy and efficiency, similar to InceptionV3.
+  InceptionResNetV2 consists of 164 layers with approximately 55 million parameters. It
+  InceptionResNetV2 is its complexity, which can make it challenging to train and deploy.
+[PAGE 62 MATCH]
+  from pre-trained models, which have been trained on large datasets, and applies it to a specific
+  neural networks such as VGG16, InceptionV3, InceptionResNetV2, and MobileNetV2, were
+  employed. These pre-trained models are extensively trained on large-scale image datasets for
+  preprocessed dataset of Ethiopian traditional medicinal plants was utilized to fine-tune the pre-
+  the knowledge gained from a diverse dataset.
+  Epochs and Batches
+[PAGE 65 MATCH]
+  The choice of pre-trained models, such as VGG16, InceptionV3, InceptionResNetV2, and
+  when the dataset is relatively small and the images require detailed feature extraction.
+  convolutional operations. It is suitable for datasets with more complex and diverse images.
+  • InceptionResNetV2: InceptionResNetV2 combines the Inception architecture with
+  Accuracy
+  Accuracy on
+  layers, year of release, parameters, top-1 accuracy on ImageNet, top-5 accuracy on ImageNet,
+  represents the total number of learnable weights in the model.  The top-1 accuracy represents
+[PAGE 76 MATCH]
+  optimize the dataset for training.
+  challenges of the dataset effectively.  The chapter proceeds to delve into the training process,
+  explaining how the dataset was utilized to train the CNN model.
+  InceptionResNetV2, and MobileNetV2, and the process of fine -tuning these models to adapt
+  them to the Ethiopian traditional medicinal plant dataset. This approach significantly enhances
+  such as accuracy, precision, recall, and f1-score and how they were calculated. The section also
+  dataset preparation to model development, training, evaluation, optimization, and final
+[PAGE 86 MATCH]
+  underwent training for 100 epochs. The intention is to examine and comprehend the
+  1) Accuracy: The accuracy values indicate the overall correctness of the model's predictions.
+  In this case, the Train generator dataset demonstrates the highest accuracy, suggesting that the
+  model performs relatively well on the data it was trained on. The Test generator dataset also
+  unseen data can be better. However, the Validation generator dataset exhibits a relatively lower
+  accuracy, suggesting that the model's performance might be relatively weaker on this specific
+  dataset.
+  positive instances, the Train generator dataset achieves the highest precision. This indicates
+  that the model has a high ability to correctly identify positive instances within this dataset. The
+  Test generator and Validation generator datasets also demonstrate a reasonably good but
+  Accuracy Precision Recall F1-score
+[PAGE 87 MATCH]
+  identifying positive instances within this dataset.
+  instances, the Train generator dataset achieves the highest recall, indicating that the model has
+  struggle to identify positive instances within this specific dataset. Generally, recall shows
+  showcases higher values for the Train generator dataset compared to the Test and Validation
+  datasets, indicating the model's stronger performance on the data it was trained on and
+  highlighting potential challenges in generalization to unseen and specific datasets.
+  on the Train generator dataset, indicating that the model has achieved a relatively better fit to
+  the training data. However, both the Validation generator dataset and the Test generator dataset
+  datasets.
+  The performance of the model on the different datasets can be assessed based on the
+  Accuracy Precision Recall F1-score Loss
+[PAGE 88 MATCH]
+  Figure 4-7 Training and V alidation’s Accuracy/Loss Curve
+  the overall accuracy but also how the model performs across different classes. This is where
+[PAGE 93 MATCH]
+  Then the model is compiled and trained using the target augmented dataset. Since the pre-
+  dataset, excluding the top layer , and with the specific input shape to match the size of the
+  images in this project’s dataset.
+  ImageNet dataset.
+  InceptionResNetV2
+  InceptionResNetV2
+[PAGE 96 MATCH]
+  Dataset Accuracy Precision Recall F1-score Loss
+  aspects of the performance criteria. The model performs with high accuracy, precision, and
+  Figure 4-13 Train and Validation’s Accuracy/Loss of InceptionV3
+[PAGE 99 MATCH]
+  Accuracy Precision Recall F1-score Loss
+  same training strategy with 60 epochs.
+  Figure 4-17 Train and Validation’s Accuracy/Loss of VGG16
+[PAGE 100 MATCH]
+  4.6.3 Transfer learning using InceptionResNetV2
+  training the model with the augmented dataset using 60 epochs made the same way with other
+[PAGE 101 MATCH]
+  Table 4-5 Performance evaluation of InceptionResNetV2
+  Accuracy Precision Recall F1-score Loss
+  The data presented in the table demonstrates that InceptionResNetV2 outperforms other
+  accuracy of 97.6%, InceptionResNetV2 capitalizes on its unique architecture, which combines
+  Figure 4-20 Train and Validation’s Accuracy/Loss of InceptionResNetV2
+[PAGE 102 MATCH]
+  Figure 4-21 Train and Validation’s Precision, Recall, and Loss of InceptionResNetV2
+  Figure 4-22 Random evaluation of the InceptionResNetV2 model on test images
+[PAGE 103 MATCH]
+  Figure 4-23 Confusion matrix’s insight of InceptionResNetV2 model on the test set
+  In evaluating the performance of the InceptionResNetV2 model using the confusion
+[PAGE 104 MATCH]
+  the model compiled, and then trained using 60 epochs.
+  Dataset Accuracy Precision Recall F1-score Loss
+  The model's performance stands out as superior to other models, with InceptionResNetV2
+  Figure 4-24 Train and Validation’s Accuracy/Loss of MobileNetV2
+[PAGE 106 MATCH]
+  CNN, VGG16, InceptionV3, InceptionResNetV2, and MobileNetV2 models to facilitate the
+  range of evaluation metrics, including accuracy, precision, recall, and f1-score, along with the
+[PAGE 107 MATCH]
+  insightful visualization of training and validation accuracy using matplotlib. Furthermore, we
+  performance, encompassing overall accuracy, class classification proficiency, and the nuanced
+  Comparing the performance of different models across key metrics—accuracy, precision,
+  Accuracy Precision Recall F1-score
+  Custem CNN InceptionV3 VGG16 InceptionResNetV2 MobileNetV2
+[PAGE 108 MATCH]
+  predictive capabilities in practical scenarios. Through metrics such as accuracy, precision,
+  training, validation, and test datasets, we can ascertain how effectively each model learns from
+  Custom CNN InceptionV3 VGG16 InceptionResNetV2 MobileNetV2
+  Accuracy 0.7568 0.8088 0.825 0.9011 0.8778
+  Accuracy Precision Recall F1-score
+[PAGE 109 MATCH]
+  discrepancies in loss values across the different datasets allows us to identify potential issues
+  shows the accuracy, precision, recall, f1-score, and loss of all models for both training and
+  testing datasets.
+  Custom CNN InceptionV3 VGG16 InceptionResNetV2 MobileNetV2
+  Accuracy 0.8585 0.9156 0.9456 0.9762 0.956
+  Test Accuracy 0.7568 0.8088 0.825 0.9011 0.8778
+  Custom CNN InceptionV3 VGG16 InceptionResNetV2 MobileNetV2
+[PAGE 110 MATCH]
+  models' ability to capture and generalize features from vast and diverse datasets, providing a
+  When considering various performance criteria such as accuracy, precision, recall, F1 -
+  score, and loss values across all three data generators, InceptionResNetV2 emerges as the
+  loss values across datasets, indicating its superior predictive capability and robustness.
+  random images from the test dataset, InceptionResNetV2 achieves perfect predictions with
+  However, the intricate architecture and considerable size of the InceptionResNetV2 model
+  InceptionResNetV2 for deployment, we aim to harness its robust capabilities effectively in
+  Deploying the selected models of InceptionResNetV2 for classifying Ethiopian traditional
+[PAGE 115 MATCH]
+  devices. In the context of transfer learning with InceptionResNetV2, which emerges as the
+  quantized model maintains adequate performance metrics such as accuracy and speed, crucial
+  InceptionResNetV2 model to web and mobile applications, unlocking its potential for a wide
+  trained InceptionResNetV2 model. This model serves as the foundation for our transfer
